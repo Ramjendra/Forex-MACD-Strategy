@@ -20,13 +20,22 @@ jobs:
       - name: Install Dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install yfinance pandas numpy requests
+          pip install yfinance pandas numpy requests Pillow
+
+      - name: Verify Files
+        run: |
+          ls -R
+          echo "Checking for strategy script..."
+          if [ ! -f forex_macd_strategy.py ]; then echo "❌ forex_macd_strategy.py missing!"; exit 1; fi
 
       - name: Run Strategy Analysis
         env:
           RUN_ONCE: "True"
           ENABLE_SCREENSHOTS: "False"
-        run: python forex_macd_strategy.py
+        run: |
+          echo "🚀 Starting Analysis..."
+          python forex_macd_strategy.py
+          echo "✅ Analysis Finished."
 
       - name: Push to Hugging Face Space
         env:
@@ -35,15 +44,18 @@ jobs:
           git config --global user.email "github-actions@github.com"
           git config --global user.name "GitHub Actions"
           
-          # Clone the HF Space repo
+          echo "📦 Cloning Hugging Face Space..."
           git clone https://dixitramjendra:$HF_TOKEN@huggingface.co/spaces/dixitramjendra/MACD_Strategy hf_space
           
-          # Copy updated JSON files
+          echo "📂 Copying updated JSON files..."
           cp forex_macd_signals.json hf_space/
           cp active_signals.json hf_space/
           cp signal_history.json hf_space/
           
           cd hf_space
           git add .
+          echo "📝 Committing changes..."
           git commit -m "Update signals from GitHub Actions" || echo "No changes to commit"
+          
+          echo "🚀 Pushing to Hugging Face..."
           git push origin main
