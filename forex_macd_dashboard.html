@@ -537,8 +537,8 @@
 
             const debug = document.getElementById('debugInfo');
             try {
-                // Fetch signals
-                const signalsRes = await fetch('forex_macd_signals.json');
+                // Fetch signals with cache busting
+                const signalsRes = await fetch('forex_macd_signals.json?t=' + Date.now());
                 if (signalsRes.ok) {
                     cachedData = await signalsRes.json();
                     lastFetchTimes.signals = Date.now();
@@ -846,7 +846,7 @@
             container.className = 'history-mode';
 
             try {
-                const res = await fetch('signal_history.json');
+                const res = await fetch('signal_history.json?t=' + Date.now());
                 if (!res.ok) throw new Error('History not found');
                 const history = await res.json();
                 lastFetchTimes.history = Date.now();
