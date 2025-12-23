@@ -22,6 +22,16 @@ jobs:
           python -m pip install --upgrade pip
           pip install yfinance pandas numpy requests Pillow
 
+      - name: Pull Existing State from Hugging Face
+        env:
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
+        run: |
+          echo "📥 Pulling latest state from HF..."
+          git clone https://dixitramjendra:$HF_TOKEN@huggingface.co/spaces/dixitramjendra/MACD_Strategy hf_state
+          cp hf_state/active_signals.json . || echo "No active_signals.json found"
+          cp hf_state/signal_history.json . || echo "No signal_history.json found"
+          rm -rf hf_state
+
       - name: Verify Files
         run: |
           ls -R
