@@ -13,7 +13,7 @@ import io
 from pathlib import Path
 from datetime import datetime
 
-PORT = int(os.environ.get("PORT", 7860))
+PORT = int(os.environ.get("PORT", 8003))
 BASE_DIR = Path(__file__).parent
 VISITORS_FILE = BASE_DIR / "visitors.json"
 
