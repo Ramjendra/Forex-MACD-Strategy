@@ -1,0 +1,1035 @@
+{
+  "last_updated": "2025-12-23T23:28:26.350301",
+  "data": [
+    {
+      "instrument": "US Oil (WTI)",
+      "flag": "\ud83d\udee2\ufe0f",
+      "ltp": 58.18000030517578,
+      "daily": {
+        "macd_line": -0.7823531461993483,
+        "bias": "BEARISH",
+        "label": "Daily"
+      },
+      "h4": {
+        "histogram": 0.15519398742772805,
+        "bias": "NEUTRAL",
+        "label": "4H MOM"
+      },
+      "h1": {
+        "histogram": -0.04318524236338675,
+        "status": "BEARISH_MOM",
+        "close": 58.08000183105469,
+        "label": "1H Entry",
+        "ema_200": 57.2063197243754,
+        "rsi": 56.00006103515625
+      },
+      "overall_status": "CONFLICT (Trend/MOM/Filter Mismatch)",
+      "signal": null,
+      "category": "Metals/Energy",
+      "timestamp": "2025-12-23T23:28:20.961290"
+    },
+    {
+      "instrument": "MCX Crude Oil",
+      "flag": "\ud83c\uddee\ud83c\uddf3\ud83d\udee2\ufe0f",
+      "ltp": 5202.746704841615,
+      "daily": {
+        "macd_line": 0.41674906919674015,
+        "bias": "NEUTRAL",
+        "label": "4H Trend"
+      },
+      "h4": {
+        "histogram": -0.04318524236338675,
+        "bias": "NEUTRAL",
+        "label": "1H MOM"
+      },
+      "h1": {
+        "histogram": 0.025257055056156403,
+        "status": "BULLISH_MOM",
+        "close": 58.15999984741211,
+        "label": "15m Entry",
+        "ema_200": 57.51156192938555,
+        "rsi": 50.89288451254942
+      },
+      "overall_status": "CONFLICT (Trend/MOM/Filter Mismatch)",
+      "signal": null,
+      "category": "Intraday IndianMarket",
+      "timestamp": "2025-12-23T23:28:21.718992"
+    },
+    {
+      "instrument": "MCX Natural Gas",
+      "flag": "\ud83c\uddee\ud83c\uddf3\ud83d\udd25",
+      "ltp": 334.181235381031,
+      "daily": {
+        "macd_line": -0.07845838859363052,
+        "bias": "BEARISH",
+        "label": "4H Trend"
+      },
+      "h4": {
+        "histogram": -0.010337759334063501,
+        "bias": "NEUTRAL",
+        "label": "1H MOM"
+      },
+      "h1": {
+        "histogram": 0.010468397574314883,
+        "status": "BULLISH_MOM",
+        "close": 3.7309999465942383,
+        "label": "15m Entry",
+        "ema_200": 3.88862182766744,
+        "rsi": 59.04254509668649
+      },
+      "overall_status": "CONFLICT (Trend/MOM/Filter Mismatch)",
+      "signal": null,
+      "category": "Intraday IndianMarket",
+      "timestamp": "2025-12-23T23:28:21.690885"
+    },
+    {
+      "instrument": "MCX Copper",
+      "flag": "\ud83c\uddee\ud83c\uddf3\ud83e\uddf1",
+      "ltp": 1122.7218318686655,
+      "daily": {
+        "macd_line": 0.03220529235508085,
+        "bias": "BULLISH",
+        "label": "4H Trend"
+      },
+      "h4": {
+        "histogram": 0.0031779697707123924,
+        "bias": "NEUTRAL",
+        "label": "1H MOM"
+      },
+      "h1": {
+        "histogram": -0.0018058333082625034,
+        "status": "BEARISH_MOM",
+        "close": 5.556000232696533,
+        "label": "15m Entry",
+        "ema_200": 5.516391782156369,
+        "rsi": 37.584006451695494
+      },
+      "overall_status": "CONFLICT (Trend/MOM/Filter Mismatch)",
+      "signal": null,
+      "category": "Intraday IndianMarket",
+      "timestamp": "2025-12-23T23:28:21.796175"
+    },
+    {
+      "instrument": "Gold",
+      "flag": "\ud83e\udd47",
+      "ltp": 4501.2001953125,
+      "daily": {
+        "macd_line": 77.15796588483772,
+        "bias": "BULLISH",
+        "label": "Daily"
+      },
+      "h4": {
+        "histogram": 8.28496510821622,
+        "bias": "NEUTRAL",
+        "label": "4H MOM"
+      },
+      "h1": {
+        "histogram": -6.4549290934953625,
+        "status": "BEARISH_MOM",
+        "close": 4501.39990234375,
+        "label": "1H Entry",
+        "ema_200": 4374.339359279724,
+        "rsi": 40.57845970595984
+      },
+      "overall_status": "CONFLICT (Trend/MOM/Filter Mismatch)",
+      "signal": null,
+      "category": "Metals/Energy",
+      "timestamp": "2025-12-23T23:28:21.632585"
+    },
+    {
+      "instrument": "Silver",
+      "flag": "\ud83e\udd48",
+      "ltp": 70.96499633789062,
+      "daily": {
+        "macd_line": 4.001420702327515,
+        "bias": "BULLISH",
+        "label": "Daily"
+      },
+      "h4": {
+        "histogram": 0.10753648277083538,
+        "bias": "BULLISH",
+        "label": "4H MOM"
+      },
+      "h1": {
+        "histogram": 0.02199226133938814,
+        "status": "BUY_CROSS",
+        "close": 70.62999725341797,
+        "label": "1H Entry",
+        "ema_200": 65.55729913802465,
+        "rsi": 58.06067498649706
+      },
+      "overall_status": "ACTIVE_BUY",
+      "signal": {
+        "type": "BUY",
+        "entry_price": 71.23999786376953,
+        "sl": 70.42196110316685,
+        "current_sl": 70.42196110316685,
+        "tp1": 72.46705300467355,
+        "tp2": 73.69410814557757,
+        "tp3": 75.33018166678292,
+        "tp_hits": [
+          false,
+          false,
+          false
+        ],
+        "time": "2025-12-23T22:47:29.731296",
+        "candle_time": "2025-12-23T11:00:00-05:00",
+        "category": "Metals/Energy"
+      },
+      "category": "Metals/Energy",
+      "timestamp": "2025-12-23T23:28:21.656108"
+    },
+    {
+      "instrument": "Brent Crude Oil",
+      "flag": "\ud83c\uddec\ud83c\udde7\ud83d\udee2\ufe0f",
+      "ltp": 61.689998626708984,
+      "daily": {
+        "macd_line": -0.8561372539654784,
+        "bias": "BEARISH",
+        "label": "Daily"
+      },
+      "h4": {
+        "histogram": 0.09938846679589347,
+        "bias": "NEUTRAL",
+        "label": "4H MOM"
+      },
+      "h1": {
+        "histogram": -0.08530350866756244,
+        "status": "BEARISH_MOM",
+        "close": 61.59000015258789,
+        "label": "1H Entry",
+        "ema_200": 61.021755349422854,
+        "rsi": 37.500170297407394
+      },
+      "overall_status": "CONFLICT (Trend/MOM/Filter Mismatch)",
+      "signal": null,
+      "category": "Metals/Energy",
+      "timestamp": "2025-12-23T23:28:21.661040"
+    },
+    {
+      "instrument": "Natural Gas",
+      "flag": "\ud83d\udd25",
+      "ltp": 3.736999988555908,
+      "daily": {
+        "macd_line": -0.09617675735424847,
+        "bias": "NEUTRAL",
+        "label": "Daily"
+      },
+      "h4": {
+        "histogram": -0.027304443226618152,
+        "bias": "BEARISH",
+        "label": "4H MOM"
+      },
+      "h1": {
+        "histogram": -0.010337759334063501,
+        "status": "BEARISH_MOM",
+        "close": 3.7239999771118164,
+        "label": "1H Entry",
+        "ema_200": 4.10002778854887,
+        "rsi": 30.84507264544115
+      },
+      "overall_status": "CONFLICT (Trend/MOM/Filter Mismatch)",
+      "signal": null,
+      "category": "Metals/Energy",
+      "timestamp": "2025-12-23T23:28:21.403603"
+    },
+    {
+      "instrument": "Platinum",
+      "flag": "\ud83d\udc8d",
+      "ltp": 2292.800048828125,
+      "daily": {
+        "macd_line": 108.24651117953658,
+        "bias": "BULLISH",
+        "label": "Daily"
+      },
+      "h4": {
+        "histogram": 13.795629597926052,
+        "bias": "BULLISH",
+        "label": "4H MOM"
+      },
+      "h1": {
+        "histogram": 2.7406820391706788,
+        "status": "BULLISH_MOM",
+        "close": 2275.10009765625,
+        "label": "1H Entry",
+        "ema_200": 1951.4782665525909,
+        "rsi": 68.99930010505918
+      },
+      "overall_status": "LOOKING_FOR_BUY",
+      "signal": null,
+      "category": "Metals/Energy",
+      "timestamp": "2025-12-23T23:28:21.628244"
+    },
+    {
+      "instrument": "Palladium",
+      "flag": "\ud83d\udc8e",
+      "ltp": 1960.0,
+      "daily": {
+        "macd_line": 80.96527600943136,
+        "bias": "BULLISH",
+        "label": "Daily"
+      },
+      "h4": {
+        "histogram": 4.742437822988592,
+        "bias": "BULLISH",
+        "label": "4H MOM"
+      },
+      "h1": {
+        "histogram": 4.978074231069183,
+        "status": "BULLISH_MOM",
+        "close": 1952.0,
+        "label": "1H Entry",
+        "ema_200": 1730.2133914674826,
+        "rsi": 55.05617977528089
+      },
+      "overall_status": "LOOKING_FOR_BUY",
+      "signal": null,
+      "category": "Metals/Energy",
+      "timestamp": "2025-12-23T23:28:21.539237"
+    },
+    {
+      "instrument": "EUR/USD",
+      "flag": "\ud83c\uddea\ud83c\uddfa\ud83c\uddfa\ud83c\uddf8",
+      "ltp": 1.1774401664733887,
+      "daily": {
+        "macd_line": 0.003774981869139271,
+        "bias": "BULLISH",
+        "label": "Daily"
+      },
+      "h4": {
+        "histogram": 0.0006277739196909816,
+        "bias": "NEUTRAL",
+        "label": "4H MOM"
+      },
+      "h1": {
+        "histogram": -0.0002604305962767301,
+        "status": "BEARISH_MOM",
+        "close": 1.177994966506958,
+        "label": "1H Entry",
+        "ema_200": 1.1732443501880891,
+        "rsi": 49.05672598902078
+      },
+      "overall_status": "CONFLICT (Trend/MOM/Filter Mismatch)",
+      "signal": null,
+      "category": "Forex",
+      "timestamp": "2025-12-23T23:28:21.983905"
+    },
+    {
+      "instrument": "GBP/USD",
+      "flag": "\ud83c\uddec\ud83c\udde7\ud83c\uddfa\ud83c\uddf8",
+      "ltp": 1.3472368717193604,
+      "daily": {
+        "macd_line": 0.004743802284778553,
+        "bias": "BULLISH",
+        "label": "Daily"
+      },
+      "h4": {
+        "histogram": 0.0009905720867683012,
+        "bias": "NEUTRAL",
+        "label": "4H MOM"
+      },
+      "h1": {
+        "histogram": -0.0004386628032379213,
+        "status": "BEARISH_MOM",
+        "close": 1.3485448360443115,
+        "label": "1H Entry",
+        "ema_200": 1.339726322772908,
+        "rsi": 50.91802050156572
+      },
+      "overall_status": "CONFLICT (Trend/MOM/Filter Mismatch)",
+      "signal": null,
+      "category": "Forex",
+      "timestamp": "2025-12-23T23:28:22.913021"
+    },
+    {
+      "instrument": "USD/JPY",
+      "flag": "\ud83c\uddfa\ud83c\uddf8\ud83c\uddef\ud83c\uddf5",
+      "ltp": 156.30999755859375,
+      "daily": {
+        "macd_line": 0.42242833584080586,
+        "bias": "BULLISH",
+        "label": "Daily"
+      },
+      "h4": {
+        "histogram": -0.15494736557923572,
+        "bias": "NEUTRAL",
+        "label": "4H MOM"
+      },
+      "h1": {
+        "histogram": 0.058819703701201737,
+        "status": "BULLISH_MOM",
+        "close": 156.33299255371094,
+        "label": "1H Entry",
+        "ema_200": 156.12158379206386,
+        "rsi": 49.39892980184231
+      },
+      "overall_status": "CONFLICT (Trend/MOM/Filter Mismatch)",
+      "signal": null,
+      "category": "Forex",
+      "timestamp": "2025-12-23T23:28:22.797383"
+    },
+    {
+      "instrument": "AUD/USD",
+      "flag": "\ud83c\udde6\ud83c\uddfa\ud83c\uddfa\ud83c\uddf8",
+      "ltp": 0.6691200733184814,
+      "daily": {
+        "macd_line": 0.0025585195388049264,
+        "bias": "BULLISH",
+        "label": "Daily"
+      },
+      "h4": {
+        "histogram": 0.0008242138218708571,
+        "bias": "NEUTRAL",
+        "label": "4H MOM"
+      },
+      "h1": {
+        "histogram": -1.7401620348401125e-05,
+        "status": "BEARISH_MOM",
+        "close": 0.6694784760475159,
+        "label": "1H Entry",
+        "ema_200": 0.6636585866776238,
+        "rsi": 67.51578017715359
+      },
+      "overall_status": "CONFLICT (Trend/MOM/Filter Mismatch)",
+      "signal": null,
+      "category": "Forex",
+      "timestamp": "2025-12-23T23:28:23.403596"
+    },
+    {
+      "instrument": "USD/CHF",
+      "flag": "\ud83c\uddfa\ud83c\uddf8\ud83c\udde8\ud83c\udded",
+      "ltp": 0.7893199920654297,
+      "daily": {
+        "macd_line": -0.001923955315835113,
+        "bias": "BEARISH",
+        "label": "Daily"
+      },
+      "h4": {
+        "histogram": -0.00047928534489166024,
+        "bias": "NEUTRAL",
+        "label": "4H MOM"
+      },
+      "h1": {
+        "histogram": 0.00022216424103327598,
+        "status": "BULLISH_MOM",
+        "close": 0.7897199988365173,
+        "label": "1H Entry",
+        "ema_200": 0.7951680823844931,
+        "rsi": 49.944431213781066
+      },
+      "overall_status": "CONFLICT (Trend/MOM/Filter Mismatch)",
+      "signal": null,
+      "category": "Forex",
+      "timestamp": "2025-12-23T23:28:23.555754"
+    },
+    {
+      "instrument": "NZD/USD",
+      "flag": "\ud83c\uddf3\ud83c\uddff\ud83c\uddfa\ud83c\uddf8",
+      "ltp": 0.5831243991851807,
+      "daily": {
+        "macd_line": 0.0021001203523307588,
+        "bias": "NEUTRAL",
+        "label": "Daily"
+      },
+      "h4": {
+        "histogram": 0.000794397612310457,
+        "bias": "NEUTRAL",
+        "label": "4H MOM"
+      },
+      "h1": {
+        "histogram": -7.780232995139571e-05,
+        "status": "BEARISH_MOM",
+        "close": 0.5832264423370361,
+        "label": "1H Entry",
+        "ema_200": 0.5784969184988588,
+        "rsi": 62.964686267097065
+      },
+      "overall_status": "CONFLICT (Trend/MOM/Filter Mismatch)",
+      "signal": null,
+      "category": "Forex",
+      "timestamp": "2025-12-23T23:28:23.143373"
+    },
+    {
+      "instrument": "USD/CAD",
+      "flag": "\ud83c\uddfa\ud83c\uddf8\ud83c\udde8\ud83c\udde6",
+      "ltp": 1.3709100484848022,
+      "daily": {
+        "macd_line": -0.006545036458240894,
+        "bias": "BEARISH",
+        "label": "Daily"
+      },
+      "h4": {
+        "histogram": -0.0007644767720157507,
+        "bias": "BEARISH",
+        "label": "4H MOM"
+      },
+      "h1": {
+        "histogram": -9.599887106713284e-06,
+        "status": "BEARISH_MOM",
+        "close": 1.37090003490448,
+        "label": "1H Entry",
+        "ema_200": 1.378205418424138,
+        "rsi": 38.17563643658863
+      },
+      "overall_status": "ACTIVE_SELL",
+      "signal": {
+        "type": "SELL",
+        "entry_price": 1.3707000017166138,
+        "sl": 1.3725224733352661,
+        "current_sl": 1.3725224733352661,
+        "tp1": 1.3679662942886353,
+        "tp2": 1.3652325868606567,
+        "tp3": 1.361587643623352,
+        "tp_hits": [
+          false,
+          false,
+          false
+        ],
+        "time": "2025-12-23T08:00:00+00:00",
+        "category": "Forex"
+      },
+      "category": "Forex",
+      "timestamp": "2025-12-23T23:28:23.543081"
+    },
+    {
+      "instrument": "EUR/GBP",
+      "flag": "\ud83c\uddea\ud83c\uddfa\ud83c\uddec\ud83c\udde7",
+      "ltp": 0.8736500144004822,
+      "daily": {
+        "macd_line": -0.0003033810051809027,
+        "bias": "NEUTRAL",
+        "label": "Daily"
+      },
+      "h4": {
+        "histogram": -0.0001726496596314215,
+        "bias": "NEUTRAL",
+        "label": "4H MOM"
+      },
+      "h1": {
+        "histogram": 8.875320453625014e-05,
+        "status": "BULLISH_MOM",
+        "close": 0.8732100129127502,
+        "label": "1H Entry",
+        "ema_200": 0.8754560839907536,
+        "rsi": 47.177792465300726
+      },
+      "overall_status": "CONFLICT (Trend/MOM/Filter Mismatch)",
+      "signal": null,
+      "category": "Forex",
+      "timestamp": "2025-12-23T23:28:22.976755"
+    },
+    {
+      "instrument": "EUR/JPY",
+      "flag": "\ud83c\uddea\ud83c\uddfa\ud83c\uddef\ud83c\uddf5",
+      "ltp": 183.93600463867188,
+      "daily": {
+        "macd_line": 1.0789263423318687,
+        "bias": "BULLISH",
+        "label": "Daily"
+      },
+      "h4": {
+        "histogram": -0.09006325472331728,
+        "bias": "BEARISH",
+        "label": "4H MOM"
+      },
+      "h1": {
+        "histogram": 0.027776061189569726,
+        "status": "BULLISH_MOM",
+        "close": 184.04400634765625,
+        "label": "1H Entry",
+        "ema_200": 183.10582454182128,
+        "rsi": 47.64475308223359
+      },
+      "overall_status": "CONFLICT (Trend/MOM/Filter Mismatch)",
+      "signal": null,
+      "category": "Forex",
+      "timestamp": "2025-12-23T23:28:23.546009"
+    },
+    {
+      "instrument": "GBP/JPY",
+      "flag": "\ud83c\uddec\ud83c\udde7\ud83c\uddef\ud83c\uddf5",
+      "ltp": 210.5229949951172,
+      "daily": {
+        "macd_line": 1.3001802677899548,
+        "bias": "BULLISH",
+        "label": "Daily"
+      },
+      "h4": {
+        "histogram": -0.06039861145135561,
+        "bias": "BEARISH",
+        "label": "4H MOM"
+      },
+      "h1": {
+        "histogram": 0.010578144995411952,
+        "status": "BULLISH_MOM",
+        "close": 210.7550048828125,
+        "label": "1H Entry",
+        "ema_200": 209.14166944815074,
+        "rsi": 50.68886156562312
+      },
+      "overall_status": "CONFLICT (Trend/MOM/Filter Mismatch)",
+      "signal": null,
+      "category": "Forex",
+      "timestamp": "2025-12-23T23:28:23.472874"
+    },
+    {
+      "instrument": "AUD/JPY",
+      "flag": "\ud83c\udde6\ud83c\uddfa\ud83c\uddef\ud83c\uddf5",
+      "ltp": 104.52100372314453,
+      "daily": {
+        "macd_line": 0.6754105877940759,
+        "bias": "BULLISH",
+        "label": "Daily"
+      },
+      "h4": {
+        "histogram": 0.023328354737442103,
+        "bias": "BULLISH",
+        "label": "4H MOM"
+      },
+      "h1": {
+        "histogram": 0.036882343895388886,
+        "status": "BULLISH_MOM",
+        "close": 104.5989990234375,
+        "label": "1H Entry",
+        "ema_200": 103.56933342564194,
+        "rsi": 66.12348136169507
+      },
+      "overall_status": "LOOKING_FOR_BUY",
+      "signal": null,
+      "category": "Forex",
+      "timestamp": "2025-12-23T23:28:23.782740"
+    },
+    {
+      "instrument": "NZD/JPY",
+      "flag": "\ud83c\uddf3\ud83c\uddff\ud83c\uddef\ud83c\uddf5",
+      "ltp": 91.08599853515625,
+      "daily": {
+        "macd_line": 0.5690787352058351,
+        "bias": "BULLISH",
+        "label": "Daily"
+      },
+      "h4": {
+        "histogram": 0.031201535232804528,
+        "bias": "BULLISH",
+        "label": "4H MOM"
+      },
+      "h1": {
+        "histogram": 0.023259545320165907,
+        "status": "BULLISH_MOM",
+        "close": 91.12699890136719,
+        "label": "1H Entry",
+        "ema_200": 90.27657468672972,
+        "rsi": 62.472421052631574
+      },
+      "overall_status": "LOOKING_FOR_BUY",
+      "signal": null,
+      "category": "Forex",
+      "timestamp": "2025-12-23T23:28:24.223018"
+    },
+    {
+      "instrument": "GBP/CHF",
+      "flag": "\ud83c\uddec\ud83c\udde7\ud83c\udde8\ud83c\udded",
+      "ltp": 1.0633800029754639,
+      "daily": {
+        "macd_line": 0.0012057973629191476,
+        "bias": "NEUTRAL",
+        "label": "Daily"
+      },
+      "h4": {
+        "histogram": 0.00012656670654666137,
+        "bias": "NEUTRAL",
+        "label": "4H MOM"
+      },
+      "h1": {
+        "histogram": -4.210094557441557e-05,
+        "status": "BEARISH_MOM",
+        "close": 1.0649299621582031,
+        "label": "1H Entry",
+        "ema_200": 1.0651546556778895,
+        "rsi": 50.849112778373225
+      },
+      "overall_status": "CONFLICT (Trend/MOM/Filter Mismatch)",
+      "signal": null,
+      "category": "Forex",
+      "timestamp": "2025-12-23T23:28:24.517871"
+    },
+    {
+      "instrument": "EUR/CAD",
+      "flag": "\ud83c\uddea\ud83c\uddfa\ud83c\udde8\ud83c\udde6",
+      "ltp": 1.61326003074646,
+      "daily": {
+        "macd_line": -0.0023671145816888117,
+        "bias": "NEUTRAL",
+        "label": "Daily"
+      },
+      "h4": {
+        "histogram": -4.0109666144523553e-05,
+        "bias": "BEARISH",
+        "label": "4H MOM"
+      },
+      "h1": {
+        "histogram": -0.00034962385786992947,
+        "status": "BEARISH_MOM",
+        "close": 1.614300012588501,
+        "label": "1H Entry",
+        "ema_200": 1.616335888973331,
+        "rsi": 35.55550436525306
+      },
+      "overall_status": "CONFLICT (Trend/MOM/Filter Mismatch)",
+      "signal": null,
+      "category": "Forex",
+      "timestamp": "2025-12-23T23:28:24.749283"
+    },
+    {
+      "instrument": "AUD/CAD",
+      "flag": "\ud83c\udde6\ud83c\uddfa\ud83c\udde8\ud83c\udde6",
+      "ltp": 0.9167299866676331,
+      "daily": {
+        "macd_line": -0.0007331821637314162,
+        "bias": "NEUTRAL",
+        "label": "Daily"
+      },
+      "h4": {
+        "histogram": 0.0006328446478422977,
+        "bias": "NEUTRAL",
+        "label": "4H MOM"
+      },
+      "h1": {
+        "histogram": -1.5297635477724966e-05,
+        "status": "BEARISH_MOM",
+        "close": 0.9174799919128418,
+        "label": "1H Entry",
+        "ema_200": 0.9142073418434792,
+        "rsi": 64.7838097406905
+      },
+      "overall_status": "CONFLICT (Trend/MOM/Filter Mismatch)",
+      "signal": null,
+      "category": "Forex",
+      "timestamp": "2025-12-23T23:28:24.660922"
+    },
+    {
+      "instrument": "CAD/JPY",
+      "flag": "\ud83c\udde8\ud83c\udde6\ud83c\uddef\ud83c\uddf5",
+      "ltp": 114.00599670410156,
+      "daily": {
+        "macd_line": 0.8281172260950456,
+        "bias": "BULLISH",
+        "label": "Daily"
+      },
+      "h4": {
+        "histogram": -0.051978538665992724,
+        "bias": "NEUTRAL",
+        "label": "4H MOM"
+      },
+      "h1": {
+        "histogram": 0.042211803211054846,
+        "status": "BULLISH_MOM",
+        "close": 114.0,
+        "label": "1H Entry",
+        "ema_200": 113.27170673885861,
+        "rsi": 57.200703681985125
+      },
+      "overall_status": "CONFLICT (Trend/MOM/Filter Mismatch)",
+      "signal": null,
+      "category": "Forex",
+      "timestamp": "2025-12-23T23:28:24.841141"
+    },
+    {
+      "instrument": "CHF/JPY",
+      "flag": "\ud83c\udde8\ud83c\udded\ud83c\uddef\ud83c\uddf5",
+      "ltp": 197.96299743652344,
+      "daily": {
+        "macd_line": 0.9976381001133916,
+        "bias": "BULLISH",
+        "label": "Daily"
+      },
+      "h4": {
+        "histogram": -0.0783820095312846,
+        "bias": "BEARISH",
+        "label": "4H MOM"
+      },
+      "h1": {
+        "histogram": 0.01940276549339051,
+        "status": "BULLISH_MOM",
+        "close": 197.8820037841797,
+        "label": "1H Entry",
+        "ema_200": 196.31879813705117,
+        "rsi": 49.40788680999019
+      },
+      "overall_status": "CONFLICT (Trend/MOM/Filter Mismatch)",
+      "signal": null,
+      "category": "Forex",
+      "timestamp": "2025-12-23T23:28:24.885230"
+    },
+    {
+      "instrument": "Bitcoin",
+      "flag": "\u20bf",
+      "ltp": 87372.65625,
+      "daily": {
+        "macd_line": 8.455420762853464,
+        "bias": "BULLISH",
+        "label": "4H Trend"
+      },
+      "h4": {
+        "histogram": 10.172029663420858,
+        "bias": "BULLISH",
+        "label": "1H MOM"
+      },
+      "h1": {
+        "histogram": 52.08465172364636,
+        "status": "BULLISH_MOM",
+        "close": 87680.5234375,
+        "label": "15m Entry",
+        "ema_200": 88222.25590032623,
+        "rsi": 48.96058516053026
+      },
+      "overall_status": "CONFLICT (Trend/MOM/Filter Mismatch)",
+      "signal": null,
+      "category": "Crypto Scalping",
+      "timestamp": "2025-12-23T23:28:25.376419"
+    },
+    {
+      "instrument": "Ethereum",
+      "flag": "\u039e",
+      "ltp": 2917.459228515625,
+      "daily": {
+        "macd_line": 1.4151595692401315,
+        "bias": "BULLISH",
+        "label": "4H Trend"
+      },
+      "h4": {
+        "histogram": -3.200606044680187,
+        "bias": "BEARISH",
+        "label": "1H MOM"
+      },
+      "h1": {
+        "histogram": 2.179394873103341,
+        "status": "BULLISH_MOM",
+        "close": 2934.727783203125,
+        "label": "15m Entry",
+        "ema_200": 2984.078135935258,
+        "rsi": 44.561929366112125
+      },
+      "overall_status": "CONFLICT (Trend/MOM/Filter Mismatch)",
+      "signal": null,
+      "category": "Crypto Scalping",
+      "timestamp": "2025-12-23T23:28:25.610443"
+    },
+    {
+      "instrument": "Solana",
+      "flag": "\u2600\ufe0f",
+      "ltp": 123.54246520996094,
+      "daily": {
+        "macd_line": -0.35852502061204916,
+        "bias": "BEARISH",
+        "label": "4H Trend"
+      },
+      "h4": {
+        "histogram": -0.08211586239358148,
+        "bias": "NEUTRAL",
+        "label": "1H MOM"
+      },
+      "h1": {
+        "histogram": 0.154328917303074,
+        "status": "BULLISH_MOM",
+        "close": 123.89045715332031,
+        "label": "15m Entry",
+        "ema_200": 125.19361395008899,
+        "rsi": 53.59770582533536
+      },
+      "overall_status": "CONFLICT (Trend/MOM/Filter Mismatch)",
+      "signal": null,
+      "category": "Crypto Scalping",
+      "timestamp": "2025-12-23T23:28:25.772278"
+    },
+    {
+      "instrument": "Ripple",
+      "flag": "\ud83d\udca7",
+      "ltp": 1.8766191005706787,
+      "daily": {
+        "macd_line": -0.004308925370050787,
+        "bias": "BEARISH",
+        "label": "4H Trend"
+      },
+      "h4": {
+        "histogram": 0.00035144549464388025,
+        "bias": "BULLISH",
+        "label": "1H MOM"
+      },
+      "h1": {
+        "histogram": 0.0002081156425620843,
+        "status": "BULLISH_MOM",
+        "close": 1.8806792497634888,
+        "label": "15m Entry",
+        "ema_200": 1.902818438479677,
+        "rsi": 47.91875716743119
+      },
+      "overall_status": "CONFLICT (Trend/MOM/Filter Mismatch)",
+      "signal": null,
+      "category": "Crypto Scalping",
+      "timestamp": "2025-12-23T23:28:25.892836"
+    },
+    {
+      "instrument": "Cardano",
+      "flag": "\u20b3",
+      "ltp": 0.3616586923599243,
+      "daily": {
+        "macd_line": -0.0024240905608229335,
+        "bias": "BEARISH",
+        "label": "4H Trend"
+      },
+      "h4": {
+        "histogram": -0.0005296102872653526,
+        "bias": "NEUTRAL",
+        "label": "1H MOM"
+      },
+      "h1": {
+        "histogram": 0.0003241466808546684,
+        "status": "BULLISH_MOM",
+        "close": 0.3625245690345764,
+        "label": "15m Entry",
+        "ema_200": 0.367659942243328,
+        "rsi": 49.72758071549396
+      },
+      "overall_status": "CONFLICT (Trend/MOM/Filter Mismatch)",
+      "signal": null,
+      "category": "Crypto Scalping",
+      "timestamp": "2025-12-23T23:28:25.991854"
+    },
+    {
+      "instrument": "Dogecoin",
+      "flag": "\ud83d\udc15",
+      "ltp": 0.12890344858169556,
+      "daily": {
+        "macd_line": 0.00014630659293402015,
+        "bias": "NEUTRAL",
+        "label": "4H Trend"
+      },
+      "h4": {
+        "histogram": -0.00015613518215524733,
+        "bias": "NEUTRAL",
+        "label": "1H MOM"
+      },
+      "h1": {
+        "histogram": 6.048030016263264e-05,
+        "status": "BULLISH_MOM",
+        "close": 0.1294461339712143,
+        "label": "15m Entry",
+        "ema_200": 0.1312656259536465,
+        "rsi": 43.45198217002329
+      },
+      "overall_status": "CONFLICT (Trend/MOM/Filter Mismatch)",
+      "signal": null,
+      "category": "Crypto Scalping",
+      "timestamp": "2025-12-23T23:28:26.342460"
+    },
+    {
+      "instrument": "Polkadot",
+      "flag": "\u26ab",
+      "ltp": 1.751338243484497,
+      "daily": {
+        "macd_line": -0.02162791061984448,
+        "bias": "BEARISH",
+        "label": "4H Trend"
+      },
+      "h4": {
+        "histogram": -0.0002801324810235567,
+        "bias": "NEUTRAL",
+        "label": "1H MOM"
+      },
+      "h1": {
+        "histogram": 0.0019746406790936166,
+        "status": "BULLISH_MOM",
+        "close": 1.7576234340667725,
+        "label": "15m Entry",
+        "ema_200": 1.7862458014085407,
+        "rsi": 51.32590804379101
+      },
+      "overall_status": "CONFLICT (Trend/MOM/Filter Mismatch)",
+      "signal": null,
+      "category": "Crypto Scalping",
+      "timestamp": "2025-12-23T23:28:26.331589"
+    },
+    {
+      "instrument": "Nifty 50",
+      "flag": "\ud83c\uddee\ud83c\uddf3",
+      "ltp": 26164.55078125,
+      "daily": {
+        "macd_line": 26.901820164344826,
+        "bias": "BULLISH",
+        "label": "4H Trend"
+      },
+      "h4": {
+        "histogram": 5.518191865790314,
+        "bias": "NEUTRAL",
+        "label": "1H MOM"
+      },
+      "h1": {
+        "histogram": -3.6700528869313906,
+        "status": "BEARISH_MOM",
+        "close": 26183.5,
+        "label": "15m Entry",
+        "ema_200": 26010.513435882323,
+        "rsi": 54.50567716545057
+      },
+      "overall_status": "CONFLICT (Trend/MOM/Filter Mismatch)",
+      "signal": null,
+      "category": "Intraday IndianMarket",
+      "timestamp": "2025-12-23T23:28:25.543128"
+    },
+    {
+      "instrument": "Bank Nifty",
+      "flag": "\ud83c\uddee\ud83c\uddf3\ud83c\udfe6",
+      "ltp": 59276.55078125,
+      "daily": {
+        "macd_line": -11.441543226828799,
+        "bias": "NEUTRAL",
+        "label": "4H Trend"
+      },
+      "h4": {
+        "histogram": 11.266526573788667,
+        "bias": "NEUTRAL",
+        "label": "1H MOM"
+      },
+      "h1": {
+        "histogram": -0.7169108420435251,
+        "status": "BEARISH_MOM",
+        "close": 59328.69921875,
+        "label": "15m Entry",
+        "ema_200": 59190.58167076439,
+        "rsi": 61.929705765864746
+      },
+      "overall_status": "CONFLICT (Trend/MOM/Filter Mismatch)",
+      "signal": null,
+      "category": "Intraday IndianMarket",
+      "timestamp": "2025-12-23T23:28:25.569280"
+    },
+    {
+      "instrument": "Sensex",
+      "flag": "\ud83c\uddee\ud83c\uddf3\ud83d\udcc8",
+      "ltp": 85524.546875,
+      "daily": {
+        "macd_line": 60.74882306312793,
+        "bias": "BULLISH",
+        "label": "4H Trend"
+      },
+      "h4": {
+        "histogram": 14.857479077196047,
+        "bias": "NEUTRAL",
+        "label": "1H MOM"
+      },
+      "h1": {
+        "histogram": -9.9973671002273,
+        "status": "BEARISH_MOM",
+        "close": 85546.21875,
+        "label": "15m Entry",
+        "ema_200": 85094.46511039285,
+        "rsi": 56.14770976647703
+      },
+      "overall_status": "CONFLICT (Trend/MOM/Filter Mismatch)",
+      "signal": null,
+      "category": "Intraday IndianMarket",
+      "timestamp": "2025-12-23T23:28:25.741153"
+    }
+  ]
+}

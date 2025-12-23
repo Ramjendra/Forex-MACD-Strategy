@@ -1,0 +1,1174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BiasBuster Market Dashboard</title>
+    <style>
+        :root {
+            --bg-color: #0f172a;
+            --card-bg: #1e293b;
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --bullish: #10b981;
+            --bearish: #ef4444;
+            --neutral: #64748b;
+            --accent: #3b82f6;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', system-ui, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            padding: 2rem;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1600px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #334155;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(to right, #60a5fa, #a78bfa);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .subtitle {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border-radius: 1rem;
+            padding: 2rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            border: 1px solid #334155;
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1.5rem;
+        }
+
+        .instrument-name {
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+
+        .current-price {
+            font-size: 1.1rem;
+            color: var(--accent);
+            margin-top: 0.25rem;
+            font-weight: 600;
+        }
+
+        .status-badge {
+            padding: 0.5rem 1rem;
+            border-radius: 9999px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .status-waiting {
+            background: rgba(100, 116, 139, 0.2);
+            color: var(--neutral);
+            border: 1px solid var(--neutral);
+        }
+
+        .status-buy {
+            background: rgba(16, 185, 129, 0.2);
+            color: var(--bullish);
+            border: 1px solid var(--bullish);
+        }
+
+        .status-sell {
+            background: rgba(239, 68, 68, 0.2);
+            color: var(--bearish);
+            border: 1px solid var(--bearish);
+        }
+
+        .analysis-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .tf-box {
+            background: rgba(15, 23, 42, 0.5);
+            padding: 0.75rem 0.5rem;
+            border-radius: 0.5rem;
+            text-align: center;
+            border-top: 3px solid transparent;
+        }
+
+        .tf-label {
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+        }
+
+        .tf-value {
+            font-weight: 700;
+            font-size: 0.9rem;
+            word-wrap: break-word;
+            line-height: 1.2;
+        }
+
+        .tf-detail {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            margin-top: 0.25rem;
+        }
+
+        .signal-panel {
+            background: rgba(15, 23, 42, 0.8);
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            margin-top: 1rem;
+            border-left: 4px solid transparent;
+        }
+
+        .signal-panel.buy {
+            border-left-color: var(--bullish);
+        }
+
+        .signal-panel.sell {
+            border-left-color: var(--bearish);
+        }
+
+        .signal-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+        }
+
+        .signal-row:last-child {
+            margin-bottom: 0;
+        }
+
+        .signal-label {
+            color: var(--text-secondary);
+        }
+
+        .signal-val {
+            font-weight: 600;
+            font-family: 'Courier New', monospace;
+        }
+
+        .bullish {
+            color: var(--bullish);
+        }
+
+        .bearish {
+            color: var(--bearish);
+        }
+
+        .neutral {
+            color: var(--neutral);
+        }
+
+        .border-bullish {
+            border-top-color: var(--bullish);
+        }
+
+        .border-bearish {
+            border-top-color: var(--bearish);
+        }
+
+        .border-neutral {
+            border-top-color: var(--neutral);
+        }
+
+        .last-updated {
+            text-align: center;
+            margin-top: 3rem;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        /* Tabs Styling */
+        .tabs-container {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 2.5rem;
+            flex-wrap: wrap;
+        }
+
+        .tab-btn {
+            background: var(--card-bg);
+            color: var(--text-secondary);
+            border: 1px solid #334155;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.75rem;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.2s ease;
+            font-size: 1rem;
+        }
+
+        .tab-btn:hover {
+            border-color: var(--accent);
+            color: var(--text-primary);
+        }
+
+        .tab-btn.active {
+            background: var(--accent);
+            color: white;
+            border-color: var(--accent);
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+        }
+
+        .instrument-card-container {
+            display: block;
+        }
+
+        .instrument-card-container.hidden {
+            display: none;
+        }
+
+        /* Feedback Form Styling */
+        .feedback-section {
+            margin-top: 4rem;
+            padding: 2rem;
+            background: var(--card-bg);
+            border-radius: 1rem;
+            border: 1px solid #334155;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .feedback-section h2 {
+            margin-bottom: 1rem;
+            color: var(--accent);
+        }
+
+        .feedback-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .feedback-form textarea {
+            background: var(--bg-color);
+            border: 1px solid #334155;
+            color: var(--text-primary);
+            padding: 1rem;
+            border-radius: 0.5rem;
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .feedback-form button {
+            background: var(--accent);
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background 0.2s;
+        }
+
+        .feedback-form button:hover {
+            background: #2563eb;
+        }
+
+        #feedbackStatus {
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            text-align: center;
+        }
+
+
+
+        /* History Table Styling */
+        .history-table-container {
+            width: 100%;
+            overflow-x: auto;
+            background: var(--card-bg);
+            border-radius: 1rem;
+            border: 1px solid #334155;
+            padding: 1rem;
+        }
+
+        .history-table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 800px;
+        }
+
+        .history-table th,
+        .history-table td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid #334155;
+        }
+
+        .history-table th {
+            background: rgba(15, 23, 42, 0.5);
+            color: var(--accent);
+            font-weight: 600;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+        }
+
+        .history-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .event-badge {
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 700;
+        }
+
+        .event-entry {
+            background: rgba(59, 130, 246, 0.2);
+            color: #60a5fa;
+        }
+
+        .event-tp {
+            background: rgba(16, 185, 129, 0.2);
+            color: #10b981;
+        }
+
+        .event-sl {
+            background: rgba(239, 68, 68, 0.2);
+            color: #ef4444;
+        }
+
+        /* Past Trades Styling */
+        .past-trades-controls {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            align-items: center;
+        }
+
+        .date-select {
+            background: var(--card-bg);
+            color: var(--text-primary);
+            border: 1px solid #334155;
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+            cursor: pointer;
+        }
+
+        .screenshot-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+
+        .screenshot-card {
+            background: var(--card-bg);
+            border-radius: 1rem;
+            overflow: hidden;
+            border: 1px solid #334155;
+            transition: transform 0.2s;
+        }
+
+        .screenshot-card:hover {
+            transform: scale(1.02);
+        }
+
+        .screenshot-card img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .screenshot-info {
+            padding: 1rem;
+            border-top: 1px solid #334155;
+        }
+
+        .screenshot-name {
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: var(--text-primary);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>💱 BiasBuster Market Dashboard</h1>
+            <div class="subtitle">Multi-Timeframe Analysis: Trend • Momentum • Entry (Varies by Category)</div>
+            <div id="visitorCounter"
+                style="margin-top: 0.5rem; font-size: 0.9rem; color: var(--accent); font-weight: 600;">
+                👥 Visitors: <span id="activeCount">...</span> Active • <span id="visitorCount">...</span> Total
+                <br>
+                <span id="backendStatus" style="color: var(--text-secondary); font-size: 0.8rem;">Backend:
+                    Checking...</span>
+            </div>
+
+        </header>
+
+        <div class="tabs-container" id="tabs">
+            <button class="tab-btn active" onclick="filterCategory('Active')">Active Signals</button>
+            <button class="tab-btn" onclick="filterCategory('Intraday IndianMarket')">Intraday IndianMarket</button>
+            <button class="tab-btn" onclick="filterCategory('Forex')">Forex Pairs</button>
+            <button class="tab-btn" onclick="filterCategory('Metals/Energy')">Metals & Energy</button>
+            <button class="tab-btn" onclick="filterCategory('Crypto Scalping')">Scalping</button>
+            <button class="tab-btn" onclick="filterCategory('History')">Signal History</button>
+            <button class="tab-btn" onclick="filterCategory('All')">All Assets</button>
+        </div>
+
+        <div id="dashboard" class="grid">
+            <div style="grid-column: 1/-1; text-align: center; padding: 4rem;">
+                Loading analysis data...
+            </div>
+        </div>
+
+        <div class="last-updated" id="lastUpdated"></div>
+
+        <section class="feedback-section">
+            <h2>Share Your Feedback</h2>
+            <p style="color: var(--text-secondary); margin-bottom: 1.5rem;">How is the strategy performing for you? Any
+                suggestions for improvement?</p>
+            <form class="feedback-form" id="feedbackForm">
+                <textarea id="feedbackText" placeholder="Enter your feedback here..." required></textarea>
+                <button type="submit">Submit Feedback</button>
+            </form>
+            <div id="feedbackStatus"></div>
+        </section>
+    </div>
+
+    <div id="debugInfo"
+        style="display: none; background: #450a0a; color: #fecaca; padding: 1rem; margin: 1rem; border-radius: 0.5rem; border: 1px solid #991b1b; font-family: monospace; font-size: 0.8rem; white-space: pre-wrap;">
+    </div>
+
+    <script>
+        // Global error handler
+        window.onerror = function (msg, url, lineNo, columnNo, error) {
+            const debug = document.getElementById('debugInfo');
+            debug.style.display = 'block';
+            debug.textContent += `ERROR: ${msg}\nLine: ${lineNo}\nCol: ${columnNo}\n\n`;
+            return false;
+        };
+
+        function formatPrice(price, instrument) {
+            if (price === null || price === undefined || isNaN(price)) return '---';
+            if (instrument.includes('JPY')) {
+                return price.toFixed(3);
+            } else if (instrument.includes('Oil') || instrument.includes('Gold') || instrument.includes('Bitcoin') || instrument.includes('Ethereum') || instrument.includes('Nifty') || instrument.includes('Sensex')) {
+                return price.toFixed(2);
+            } else if (instrument.includes('Silver')) {
+                return price.toFixed(3);
+            } else {
+                return price.toFixed(5);
+            }
+        }
+
+        function formatDate(dateStr) {
+            const date = new Date(dateStr);
+            const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+            const day = String(date.getDate()).padStart(2, '0');
+            const month = months[date.getMonth()];
+            const year = date.getFullYear();
+            const hours = String(date.getHours()).padStart(2, '0');
+            const minutes = String(date.getMinutes()).padStart(2, '0');
+            const seconds = String(date.getSeconds()).padStart(2, '0');
+            return `${day}/${month}/${year}, ${hours}:${minutes}:${seconds}`;
+        }
+
+        let currentCategory = 'Active';
+        let cachedData = null;
+        let selectedHistoryDate = null;
+        let lastFetchTimes = {
+            'signals': 0,
+            'history': 0,
+            'pastTrades': {} // {date: timestamp}
+        };
+
+        const SYNC_INTERVAL_ACTIVE = 30000; // 30 seconds for Active Signals
+        const SYNC_INTERVAL_OTHER = 900000; // 15 minutes for others
+
+        async function fetchData(force = false) {
+            const now = Date.now();
+            const isOtherTab = currentCategory !== 'Active' && currentCategory !== 'All';
+
+            // Only fetch if forced, or if it's the Active tab (10s), or if 15m passed for other tabs
+            if (!force) {
+                const interval = (currentCategory === 'Active') ? SYNC_INTERVAL_ACTIVE : SYNC_INTERVAL_OTHER;
+                if (now - lastFetchTimes.signals < interval) {
+                    return;
+                }
+            }
+
+            const debug = document.getElementById('debugInfo');
+            try {
+                // Fetch signals
+                const signalsRes = await fetch('forex_macd_signals.json');
+                if (signalsRes.ok) {
+                    cachedData = await signalsRes.json();
+                    lastFetchTimes.signals = Date.now();
+                } else {
+                    throw new Error(`Failed to fetch signals: ${signalsRes.status}`);
+                }
+
+                // Fetch visitor count
+                try {
+                    const visitorRes = await fetch('/api/visitor-count');
+                    if (visitorRes.ok) {
+                        const stats = await visitorRes.json();
+                        document.getElementById('visitorCount').textContent = stats.unique;
+                        document.getElementById('activeCount').textContent = stats.active;
+                    }
+                } catch (vErr) {
+                    console.error('Visitor fetch error:', vErr);
+                }
+
+                renderDashboard();
+            } catch (error) {
+                console.error('Error fetching data:', error);
+                debug.style.display = 'block';
+                debug.textContent += `Fetch Error: ${error.message}\n`;
+            }
+        }
+
+        function filterCategory(category) {
+            currentCategory = category;
+
+            // Update active tab button
+            const buttons = document.querySelectorAll('.tab-btn');
+            buttons.forEach(btn => {
+                const btnText = btn.textContent.trim();
+                if (btnText === category ||
+                    (category === 'Active' && btnText === 'Active Signals') ||
+                    (category === 'All' && btnText === 'All Assets') ||
+                    (category === 'History' && btnText === 'Signal History') ||
+                    (category === 'Crypto Scalping' && btnText === 'Scalping') ||
+                    (category === 'Intraday IndianMarket' && btnText === 'Intraday IndianMarket') ||
+                    (category === 'Metals/Energy' && btnText === 'Metals & Energy')) {
+                    btn.classList.add('active');
+                } else {
+                    btn.classList.remove('active');
+                }
+            });
+
+            if (category === 'History') {
+                renderHistory(true); // Force fetch on tab click
+            } else if (category === 'PastTrades') {
+                renderPastTrades(null, true); // Force fetch on tab click
+            } else {
+                fetchData(true); // Force fetch on tab click
+            }
+        }
+
+        function renderDashboard() {
+            try {
+                if (!cachedData) return;
+                const data = cachedData;
+                const container = document.getElementById('dashboard');
+                const lastUpdated = document.getElementById('lastUpdated');
+
+                container.innerHTML = '';
+                container.className = 'grid'; // Ensure grid layout
+                lastUpdated.textContent = `Last Updated: ${new Date(data.last_updated).toLocaleString()}`;
+
+                const backendStatus = document.getElementById('backendStatus');
+                if (data.backend_heartbeat) {
+                    backendStatus.textContent = `Backend Last Run: ${data.backend_heartbeat}`;
+                    backendStatus.style.color = 'var(--bullish)';
+                } else {
+                    backendStatus.textContent = 'Backend: Status Unknown';
+                    backendStatus.style.color = 'var(--bearish)';
+                }
+
+                // Filter by category
+                let filteredData = data.data;
+                if (currentCategory === 'Active') {
+                    filteredData = data.data.filter(inst => inst.signal !== null);
+                } else if (currentCategory !== 'All') {
+                    filteredData = data.data.filter(inst => inst.category === currentCategory);
+                }
+
+                // Environment detection: Local vs Hugging Face
+                const isLocal = window.location.hostname === 'localhost' ||
+                    window.location.hostname === '127.0.0.1' ||
+                    window.location.hostname.includes('hf.space') ||
+                    window.location.hostname.includes('huggingface.co') ||
+                    window.location.protocol === 'file:';
+
+                if (isLocal) {
+                    // Local Sort: Prioritize signals, then sort everything by recency (signal time or analysis timestamp)
+                    filteredData.sort((a, b) => {
+                        const getPriority = (inst) => {
+                            if (inst.signal) return 2;
+                            if (inst.overall_status.startsWith('ACTIVE_') || inst.overall_status.startsWith('LOOKING_')) return 1;
+                            return 0;
+                        };
+
+                        const pA = getPriority(a);
+                        const pB = getPriority(b);
+
+                        if (pA !== pB) return pB - pA;
+
+                        // Within same priority, sort by recency
+                        const timeA = a.signal ? new Date(a.signal.time).getTime() : new Date(a.timestamp).getTime();
+                        const timeB = b.signal ? new Date(b.signal.time).getTime() : new Date(b.timestamp).getTime();
+
+                        if (isNaN(timeA)) return 1;
+                        if (isNaN(timeB)) return -1;
+
+                        return timeB - timeA;
+                    });
+                } else {
+                    // Original Sort: Signals first (by time descending), then active status, then others
+                    filteredData.sort((a, b) => {
+                        const getPriority = (inst) => {
+                            if (inst.signal) return 2;
+                            if (inst.overall_status.startsWith('ACTIVE_') || inst.overall_status.startsWith('LOOKING_')) return 1;
+                            return 0;
+                        };
+
+                        const priorityA = getPriority(a);
+                        const priorityB = getPriority(b);
+
+                        if (priorityA !== priorityB) {
+                            return priorityB - priorityA;
+                        }
+
+                        // If both have signals, sort by signal time descending
+                        if (a.signal && b.signal) {
+                            const tA = new Date(a.signal.time).getTime();
+                            const tB = new Date(b.signal.time).getTime();
+                            if (isNaN(tA)) return 1;
+                            if (isNaN(tB)) return -1;
+                            return tB - tA;
+                        }
+
+                        return 0;
+                    });
+                }
+
+                filteredData.forEach(inst => {
+                    try {
+                        const card = document.createElement('div');
+                        card.className = 'card';
+
+                        let statusClass = 'status-waiting';
+                        if (inst.overall_status.includes('BUY')) statusClass = 'status-buy';
+                        if (inst.overall_status.includes('SELL')) statusClass = 'status-sell';
+
+                        const getTfClass = (bias) => {
+                            if (!bias) return 'neutral';
+                            if (bias.includes('BULLISH')) return 'bullish';
+                            if (bias.includes('BEARISH')) return 'bearish';
+                            return 'neutral';
+                        };
+
+                        const getBorderClass = (bias) => {
+                            if (!bias) return 'border-neutral';
+                            if (bias.includes('BULLISH')) return 'border-bullish';
+                            if (bias.includes('BEARISH')) return 'border-bearish';
+                            return 'border-neutral';
+                        };
+
+                        let signalHtml = '';
+                        if (inst.signal) {
+                            const typeClass = inst.signal.type === 'BUY' ? 'buy' : 'sell';
+                            const typeColor = inst.signal.type === 'BUY' ? 'bullish' : 'bearish';
+                            const entryPrice = inst.signal.entry_price || inst.signal.price;
+                            const isTrailing = inst.signal.current_sl && inst.signal.current_sl !== inst.signal.sl;
+
+                            signalHtml = `
+                                <div class="signal-panel ${typeClass}">
+                                    <div class="signal-row" style="margin-bottom: 1rem; border-bottom: 1px solid #334155; padding-bottom: 0.5rem;">
+                                        <span class="signal-label">🔴 ACTIVE SIGNAL</span>
+                                        <span class="signal-val ${typeColor}" style="font-size: 1.2rem;">${inst.signal.type}</span>
+                                    </div>
+                                    <div class="signal-row">
+                                        <span class="signal-label">Entry Price</span>
+                                        <span class="signal-val">${formatPrice(entryPrice, inst.instrument)}</span>
+                                    </div>
+                                    <div class="signal-row">
+                                        <span class="signal-label">Current LTP</span>
+                                        <span class="signal-val" style="color: var(--accent)">${formatPrice(inst.ltp, inst.instrument)}</span>
+                                    </div>
+                                    <div class="signal-row" style="${isTrailing ? 'opacity: 0.6; font-size: 0.85rem;' : ''}">
+                                        <span class="signal-label">Initial SL</span>
+                                        <span class="signal-val" style="color: var(--bearish)">${formatPrice(inst.signal.sl, inst.instrument)}</span>
+                                    </div>
+                                    ${isTrailing ? `
+                                    <div class="signal-row">
+                                        <span class="signal-label">Trailing SL 🛡️</span>
+                                        <span class="signal-val" style="color: var(--bullish)">${formatPrice(inst.signal.current_sl, inst.instrument)}</span>
+                                    </div>` : ''}
+                                    
+                                    <div style="margin-top: 0.5rem; border-top: 1px dashed #334155; padding-top: 0.5rem;">
+                                        <div class="signal-row">
+                                            <span class="signal-label">TP 1 (1.5x) ${inst.signal.tp_hits && inst.signal.tp_hits[0] ? '<span style="color: var(--bullish); font-weight: bold; margin-left: 5px;">✓</span>' : ''}</span>
+                                            <span class="signal-val" style="color: var(--bullish)">${formatPrice(inst.signal.tp1 || inst.signal.tp, inst.instrument)}</span>
+                                        </div>
+                                        <div class="signal-row">
+                                            <span class="signal-label">TP 2 (3.0x) ${inst.signal.tp_hits && inst.signal.tp_hits[1] ? '<span style="color: var(--bullish); font-weight: bold; margin-left: 5px;">✓</span>' : ''}</span>
+                                            <span class="signal-val" style="color: var(--bullish)">${formatPrice(inst.signal.tp2 || 0, inst.instrument)}</span>
+                                        </div>
+                                        <div class="signal-row">
+                                            <span class="signal-label">TP 3 (5.0x) ${inst.signal.tp_hits && inst.signal.tp_hits[2] ? '<span style="color: var(--bullish); font-weight: bold; margin-left: 5px;">✓</span>' : ''}</span>
+                                            <span class="signal-val" style="color: var(--bullish)">${formatPrice(inst.signal.tp3 || 0, inst.instrument)}</span>
+                                        </div>
+                                    </div>
+                                    <div class="signal-row" style="margin-top: 0.5rem; border-top: 1px solid #334155; padding-top: 0.5rem;">
+                                        <span class="signal-label">Detection Time</span>
+                                        <span class="signal-val" style="color: var(--text-secondary); font-size: 0.85rem;" title="Candle Time: ${inst.signal.candle_time ? formatDate(inst.signal.candle_time) : 'N/A'}">${formatDate(inst.signal.time)}</span>
+                                    </div>
+                                </div>
+                            `;
+                        } else {
+                            signalHtml = `
+                                <div style="text-align: center; padding: 2rem; color: var(--text-secondary); border: 1px dashed #334155; border-radius: 0.5rem; margin-top: 1rem;">
+                                    Waiting for signal conditions...
+                                </div>
+                            `;
+                        }
+
+                        card.innerHTML = `
+                            <div class="card-header">
+                                <div>
+                                    <div style="font-size: 2.5rem; margin-bottom: 0.25rem;">${inst.flag || ''}</div>
+                                    <div class="instrument-name">${inst.instrument}</div>
+                                    <div class="current-price">LTP: ${formatPrice(inst.ltp, inst.instrument)}</div>
+                                </div>
+                                <div class="status-badge ${statusClass}">${inst.overall_status.replace(/_/g, ' ')}</div>
+                            </div>
+
+                            <div class="analysis-grid">
+                                <div class="tf-box ${getBorderClass(inst.daily.bias)}">
+                                    <div class="tf-label">${inst.daily.label || 'Daily'}</div>
+                                    <div class="tf-value ${getTfClass(inst.daily.bias)}">${inst.daily.bias}</div>
+                                </div>
+
+                                <div class="tf-box ${getBorderClass(inst.h4.bias)}">
+                                    <div class="tf-label">${inst.h4.label || '4H MOM'}</div>
+                                    <div class="tf-value ${getTfClass(inst.h4.bias)}">${inst.h4.bias}</div>
+                                </div>
+
+                                <div class="tf-box ${getBorderClass(inst.h1.status)}">
+                                    <div class="tf-label">${inst.h1.label || '1H Entry'}</div>
+                                    <div class="tf-value ${getTfClass(inst.h1.status)}">${inst.h1.status.replace(/_/g, ' ')}</div>
+                                </div>
+                            </div>
+
+                            ${signalHtml}
+                        `;
+
+                        container.appendChild(card);
+                    } catch (cardErr) {
+                        console.error('Error rendering card:', cardErr, inst);
+                    }
+                });
+            } catch (err) {
+                console.error('Render error:', err);
+                const debug = document.getElementById('debugInfo');
+                debug.style.display = 'block';
+                debug.textContent += `Render Error: ${err.message}\n`;
+            }
+        }
+
+        function getPipSize(instrument) {
+            if (instrument.includes('JPY')) return 0.01;
+            if (instrument.includes('US Oil') || instrument.includes('Brent') || instrument.includes('Crude Oil')) return 0.01;
+            if (instrument.includes('Natural Gas')) return instrument.includes('MCX') ? 0.1 : 0.001;
+            if (instrument.includes('Copper')) return 0.05;
+            if (instrument.includes('Gold')) return 0.1;
+            if (instrument.includes('Silver')) return 0.005;
+            if (instrument.includes('Platinum') || instrument.includes('Palladium')) return 0.1;
+            if (instrument.includes('Bitcoin')) return 1.0;
+            if (instrument.includes('Ethereum')) return 0.1;
+            if (instrument.includes('Nifty') || instrument.includes('Sensex')) return 0.05;
+            return 0.0001; // Default for Forex
+        }
+
+        async function renderHistory(force = false) {
+            const now = Date.now();
+            if (!force && (now - lastFetchTimes.history < SYNC_INTERVAL_OTHER)) {
+                // If not forced and 15m haven't passed, just return if we already have content
+                if (document.querySelector('.history-table')) return;
+            }
+
+            const container = document.getElementById('dashboard');
+            container.innerHTML = '<div style="grid-column: 1/-1; text-align: center; padding: 4rem;">Loading history...</div>';
+            container.className = 'history-mode';
+
+            try {
+                const res = await fetch('signal_history.json');
+                if (!res.ok) throw new Error('History not found');
+                const history = await res.json();
+                lastFetchTimes.history = Date.now();
+
+                if (history.length === 0) {
+                    container.innerHTML = '<div style="grid-column: 1/-1; text-align: center; padding: 4rem; color: var(--text-secondary);">No signal history found.</div>';
+                    return;
+                }
+
+                const isLocal = window.location.hostname === 'localhost' ||
+                    window.location.hostname === '127.0.0.1' ||
+                    window.location.hostname.includes('hf.space') ||
+                    window.location.hostname.includes('huggingface.co') ||
+                    window.location.protocol === 'file:';
+
+                if (isLocal) {
+                    // Group by instrument and entry_time to show single line for closed trades
+                    const trades = {};
+                    history.forEach(item => {
+                        const key = `${item.instrument}_${item.entry_time}`;
+                        if (!trades[key]) {
+                            trades[key] = {
+                                instrument: item.instrument,
+                                type: item.type,
+                                entry_time: item.entry_time,
+                                entry_price: item.entry_price || item.price,
+                                exit_time: null,
+                                exit_price: null,
+                                event: item.event,
+                                pips: 0,
+                                last_update: new Date(item.time),
+                                initial_sl: item.initial_sl
+                            };
+                        }
+
+                        const itemTime = new Date(item.time);
+                        if (itemTime > trades[key].last_update) {
+                            trades[key].last_update = itemTime;
+                            trades[key].event = item.event;
+                        }
+
+                        if (item.event.includes('TP') || item.event.includes('SL')) {
+                            trades[key].exit_time = item.time;
+                            trades[key].exit_price = item.price;
+
+                            if (!trades[key].tp_progress) trades[key].tp_progress = new Set();
+                            if (item.event.includes('TP')) {
+                                trades[key].tp_progress.add(item.event);
+                            }
+
+                            const pipSize = getPipSize(item.instrument);
+                            const diff = item.type === 'BUY' ? (item.price - trades[key].entry_price) : (trades[key].entry_price - item.price);
+                            trades[key].pips = diff / pipSize;
+                        }
+                    });
+
+                    const sortedTrades = Object.values(trades).sort((a, b) => {
+                        const timeA = a.exit_time ? new Date(a.exit_time).getTime() : new Date(a.entry_time).getTime();
+                        const timeB = b.exit_time ? new Date(b.exit_time).getTime() : new Date(b.entry_time).getTime();
+                        return timeB - timeA;
+                    });
+
+                    // Extract unique dates for filter
+                    const dates = [...new Set(sortedTrades.map(t => {
+                        const d = t.exit_time ? new Date(t.exit_time) : new Date(t.entry_time);
+                        return d.toISOString().split('T')[0];
+                    }))].sort().reverse();
+
+                    if (!selectedHistoryDate && dates.length > 0) {
+                        selectedHistoryDate = dates[0];
+                    }
+
+                    const filteredTrades = selectedHistoryDate
+                        ? sortedTrades.filter(t => {
+                            const d = t.exit_time ? new Date(t.exit_time) : new Date(t.entry_time);
+                            return d.toISOString().split('T')[0] === selectedHistoryDate;
+                        })
+                        : sortedTrades;
+
+                    let html = `
+                        <div class="past-trades-controls" style="grid-column: 1/-1;">
+                            <label for="historyDateSelect">Filter by Date: </label>
+                            <select id="historyDateSelect" class="date-select" onchange="selectedHistoryDate = this.value; renderHistory(true);">
+                                ${dates.map(d => `<option value="${d}" ${d === selectedHistoryDate ? 'selected' : ''}>${d}</option>`).join('')}
+                            </select>
+                            <span style="margin-left: 1rem; color: var(--text-secondary); font-size: 0.9rem;">
+                                Showing ${filteredTrades.length} trades
+                            </span>
+                        </div>
+                        <div class="history-table-container" style="grid-column: 1/-1;">
+                            <table class="history-table">
+                                <thead>
+                                    <tr>
+                                        <th>Instrument</th>
+                                        <th>Type</th>
+                                        <th>Entry Time</th>
+                                        <th>Exit Time</th>
+                                        <th>Entry</th>
+                                        <th>Exit</th>
+                                        <th>Result</th>
+                                        <th>Pips</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                    `;
+
+                    sortedTrades.forEach(trade => {
+                        let eventClass = 'event-entry';
+                        if (trade.event.includes('TP')) eventClass = 'event-tp';
+                        if (trade.event.includes('SL')) eventClass = 'event-sl';
+
+                        const pipsFixed = trade.pips.toFixed(1);
+                        const pipsClass = trade.pips >= 0 ? 'bullish' : 'bearish';
+
+                        const tpIcons = Array.from(trade.tp_progress || []).sort().map(tp => {
+                            const num = tp.match(/\d/);
+                            return `<span title="${tp}" style="color: var(--bullish); font-weight: bold; margin-right: 4px; background: rgba(16, 185, 129, 0.1); padding: 2px 4px; border-radius: 4px; font-size: 0.65rem;">TP${num}✓</span>`;
+                        }).join('');
+
+                        let displayEvent = trade.event.replace('_', ' ');
+                        let slDetails = '';
+                        if (displayEvent.includes('SL HIT')) {
+                            const isTrailing = trade.event === 'TRAIL_SL_HIT' || trade.event === 'TRAILING_SL_HIT' || (trade.tp_progress && trade.tp_progress.size > 0);
+                            if (isTrailing) {
+                                displayEvent = 'TRAIL SL HIT';
+                                slDetails = `<div style="font-size: 0.7rem; color: var(--text-secondary); margin-top: 2px;">
+                                    Init SL: ${formatPrice(trade.initial_sl, trade.instrument)}<br>
+                                    Exit: ${formatPrice(trade.exit_price, trade.instrument)}
+                                </div>`;
+                            } else {
+                                slDetails = `<div style="font-size: 0.7rem; color: var(--text-secondary); margin-top: 2px;">
+                                    SL: ${formatPrice(trade.initial_sl, trade.instrument)}
+                                </div>`;
+                            }
+                        }
+
+                        html += `
+                            <tr>
+                                <td style="font-weight: 700;">${trade.instrument}</td>
+                                <td class="${trade.type === 'BUY' ? 'bullish' : 'bearish'}" style="font-weight: 700;">${trade.type}</td>
+                                <td style="color: var(--text-secondary); font-size: 0.85rem;">${formatDate(trade.entry_time)}</td>
+                                <td style="color: var(--text-secondary); font-size: 0.85rem;">${trade.exit_time ? formatDate(trade.exit_time) : '---'}</td>
+                                <td style="font-family: monospace;">${formatPrice(trade.entry_price, trade.instrument)}</td>
+                                <td style="font-family: monospace;">${trade.exit_price ? formatPrice(trade.exit_price, trade.instrument) : '---'}</td>
+                                <td><span class="event-badge ${eventClass}">${trade.event}</span></td>
+                                <td style="color: var(--${pipsClass}); font-weight: 700;">${trade.pips !== 0 ? trade.pips.toFixed(1) : '---'}</td>
+                            </tr>
+                        `;
+                    });
+
+                    html += `
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    `;
+                    container.innerHTML = html;
+                } else {
+                    // Original multi-line history for non-local
+                    history.sort((a, b) => new Date(b.time) - new Date(a.time));
+
+                    let html = `
+                        <div class="history-table-container" style="grid-column: 1/-1;">
+                            <table class="history-table">
+                                <thead>
+                                    <tr>
+                                        <th>Time (IST)</th>
+                                        <th>Instrument</th>
+                                        <th>Event</th>
+                                        <th>Price</th>
+                                        <th>Type</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                    `;
+
+                    history.forEach(item => {
+                        let eventClass = 'event-entry';
+                        if (item.event.includes('TP')) eventClass = 'event-tp';
+                        if (item.event.includes('SL')) eventClass = 'event-sl';
+
+                        html += `
+                            <tr>
+                                <td style="color: var(--text-secondary); font-size: 0.9rem;">${item.time}</td>
+                                <td style="font-weight: 700;">${item.instrument}</td>
+                                <td><span class="event-badge ${eventClass}">${item.event.replace('_', ' ')}</span></td>
+                                <td style="font-family: monospace; font-weight: 600;">${formatPrice(item.price, item.instrument)}</td>
+                                <td class="${item.type === 'BUY' ? 'bullish' : 'bearish'}" style="font-weight: 700;">${item.type}</td>
+                            </tr>
+                        `;
+                    });
+
+                    html += `</tbody></table></div>`;
+                    container.innerHTML = html;
+                }
+            } catch (error) {
+                container.innerHTML = `<div style="grid-column: 1/-1; text-align: center; padding: 4rem; color: var(--bearish);">Error loading history: ${error.message}</div>`;
+            }
+        }
+
+        async function renderPastTrades(selectedDate = null, force = false) {
+            const now = Date.now();
+            const activeDate = selectedDate || (document.querySelector('.date-select') ? document.querySelector('.date-select').value : null);
+
+            if (!force && activeDate && lastFetchTimes.pastTrades[activeDate]) {
+                if (now - lastFetchTimes.pastTrades[activeDate] < SYNC_INTERVAL_OTHER) {
+                    if (document.querySelector('.screenshot-grid')) return;
+                }
+            }
+
+            const container = document.getElementById('dashboard');
+            container.innerHTML = '<div style="grid-column: 1/-1; text-align: center; padding: 4rem;">Loading past trades...</div>';
+            container.className = 'past-trades-mode';
+
+            try {
+                // Fetch available dates
+                const datesRes = await fetch('/api/past-trades-dates');
+                if (!datesRes.ok) throw new Error('Failed to fetch dates');
+                const dates = await datesRes.json();
+
+                if (dates.length === 0) {
+                    container.innerHTML = '<div style="grid-column: 1/-1; text-align: center; padding: 4rem; color: var(--text-secondary);">No past trades found.</div>';
+                    return;
+                }
+
+                const finalActiveDate = selectedDate || dates[0];
+
+                // Fetch images for the active date
+                const imagesRes = await fetch(`/api/past-trades-images?date=${finalActiveDate}`);
+                if (!imagesRes.ok) throw new Error('Failed to fetch images');
+                const images = await imagesRes.json();
+                lastFetchTimes.pastTrades[finalActiveDate] = Date.now();
+
+                let html = `
+                    <div style="grid-column: 1/-1;">
+                        <div class="past-trades-controls">
+                            <label style="color: var(--text-secondary); font-weight: 600;">Select Date:</label>
+                            <select class="date-select" onchange="renderPastTrades(this.value)">
+                                ${dates.map(d => `<option value="${d}" ${d === activeDate ? 'selected' : ''}>${d}</option>`).join('')}
+                            </select>
+                            <span style="color: var(--text-secondary); margin-left: 1rem;">📸 ${images.length} Screenshots</span>
+                        </div>
+                        
+                        <div class="screenshot-grid">
+                `;
+
+                if (images.length === 0) {
+                    html += `<div style="grid-column: 1/-1; text-align: center; padding: 4rem; color: var(--text-secondary);">No screenshots found for this date.</div>`;
+                } else {
+                    images.forEach(imgName => {
+                        const imgPath = `past_trades/${activeDate}/${imgName}`;
+                        // Extract info from filename: EUR_USD_TP3_HIT_123456.png
+                        const parts = imgName.split('_');
+                        const instrument = parts.slice(0, 2).join('/');
+                        const event = parts.slice(2, -1).join(' ').replace('.png', '');
+
+                        html += `
+                            <div class="screenshot-card">
+                                <a href="${imgPath}" target="_blank">
+                                    <img src="${imgPath}" alt="${imgName}" loading="lazy">
+                                </a>
+                                <div class="screenshot-info">
+                                    <div class="screenshot-name">${instrument}</div>
+                                    <div style="font-size: 0.8rem; color: var(--accent); margin-top: 0.25rem;">${event}</div>
+                                </div>
+                            </div>
+                        `;
+                    });
+                }
+
+                html += `
+                        </div>
+                    </div>
+                `;
+                container.innerHTML = html;
+            } catch (err) {
+                console.error('Past trades render error:', err);
+                container.innerHTML = `<div style="grid-column: 1/-1; text-align: center; padding: 4rem; color: var(--bearish);">Error loading past trades: ${err.message}</div>`;
+            }
+        }
+
+
+        async function sendHeartbeat() {
+            try {
+                await fetch('/api/heartbeat');
+            } catch (error) {
+                console.error('Heartbeat failed:', error);
+            }
+        }
+
+        fetchData(true); // Initial force fetch
+        setInterval(() => {
+            if (currentCategory === 'History') {
+                renderHistory(false);
+            } else if (currentCategory === 'PastTrades') {
+                renderPastTrades(null, false);
+            } else {
+                fetchData(false);
+            }
+        }, 10000); // Check every 10s, but internal logic handles the 15m rule
+        setInterval(sendHeartbeat, 30000); // Send heartbeat every 30 seconds
+
+        // Feedback Submission
+        document.getElementById('feedbackForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const feedbackText = document.getElementById('feedbackText').value;
+            const statusDiv = document.getElementById('feedbackStatus');
+
+            statusDiv.textContent = 'Submitting...';
+            statusDiv.style.color = 'var(--accent)';
+
+            try {
+                const response = await fetch('/api/feedback', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ feedback: feedbackText }),
+                });
+
+                if (response.ok) {
+                    statusDiv.textContent = '✅ Thank you for your feedback!';
+                    statusDiv.style.color = 'var(--bullish)';
+                    document.getElementById('feedbackText').value = '';
+                } else {
+                    throw new Error('Failed to submit feedback');
+                }
+            } catch (error) {
+                statusDiv.textContent = '❌ Error submitting feedback. Please try again.';
+                statusDiv.style.color = 'var(--bearish)';
+            }
+        });
+
+
+    </script>
+</body>
+
+</html>

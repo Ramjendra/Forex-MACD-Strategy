@@ -1,0 +1,24 @@
+[
+  {
+    "instrument": "Silver",
+    "event": "ENTRY",
+    "price": 71.23999786376953,
+    "time": "2025-12-23 22:47:29",
+    "category": "Metals/Energy",
+    "entry_price": 71.23999786376953,
+    "entry_time": "2025-12-23T22:47:29.731296",
+    "type": "BUY",
+    "initial_sl": 70.42196110316685
+  },
+  {
+    "instrument": "Silver",
+    "event": "ENTRY",
+    "price": 71.08999633789062,
+    "time": "2025-12-23 22:51:12",
+    "category": "Metals/Energy",
+    "entry_price": 71.08999633789062,
+    "entry_time": "2025-12-23T22:51:12.956908",
+    "type": "BUY",
+    "initial_sl": 70.27195957728794
+  }
+]

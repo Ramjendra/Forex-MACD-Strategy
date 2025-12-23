@@ -1,0 +1,8 @@
+__pycache__/
+*.log
+*.png
+.DS_Store
+backups/
+hf_deployment/
+past_trades/
+visitors.json
