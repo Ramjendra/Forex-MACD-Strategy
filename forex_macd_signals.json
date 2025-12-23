@@ -1,11 +1,11 @@
 {
-  "last_updated": "2025-12-24T01:28:43.032215",
-  "backend_heartbeat": "2025-12-24 01:28:43",
+  "last_updated": "2025-12-24T01:30:06.678150",
+  "backend_heartbeat": "2025-12-24 01:30:06",
   "data": [
     {
       "instrument": "US Oil (WTI)",
       "flag": "\ud83d\udee2\ufe0f",
-      "ltp": 58.40999984741211,
+      "ltp": 58.38999938964844,
       "daily": {
         "macd_line": -0.7823531461993483,
         "bias": "BEARISH",
@@ -27,12 +27,12 @@
       "overall_status": "CONFLICT (Trend/MOM/Filter Mismatch)",
       "signal": null,
       "category": "Metals/Energy",
-      "timestamp": "2025-12-24T01:28:18.989292"
+      "timestamp": "2025-12-24T01:29:43.739392"
     },
     {
       "instrument": "MCX Crude Oil",
       "flag": "\ud83c\uddee\ud83c\uddf3\ud83d\udee2\ufe0f",
-      "ltp": 5220.4521142767335,
+      "ltp": 5218.956342998659,
       "daily": {
         "macd_line": -0.7823531461993483,
         "bias": "BEARISH",
@@ -54,12 +54,12 @@
       "overall_status": "CONFLICT (Trend/MOM/Filter Mismatch)",
       "signal": null,
       "category": "Intraday IndianMarket",
-      "timestamp": "2025-12-24T01:28:19.388810"
+      "timestamp": "2025-12-24T01:29:44.175201"
     },
     {
       "instrument": "MCX Natural Gas",
       "flag": "\ud83c\uddee\ud83c\uddf3\ud83d\udd25",
-      "ltp": 347.7620167606201,
+      "ltp": 348.13898045766837,
       "daily": {
         "macd_line": -0.09617675735424847,
         "bias": "NEUTRAL",
@@ -81,12 +81,12 @@
       "overall_status": "CONFLICT (Trend/MOM/Filter Mismatch)",
       "signal": null,
       "category": "Intraday IndianMarket",
-      "timestamp": "2025-12-24T01:28:20.111554"
+      "timestamp": "2025-12-24T01:29:44.860620"
     },
     {
       "instrument": "MCX Copper",
       "flag": "\ud83c\uddee\ud83c\uddf3\ud83e\uddf1",
-      "ltp": 1126.756397873948,
+      "ltp": 1126.5161099504764,
       "daily": {
         "macd_line": 0.09177201395211831,
         "bias": "BULLISH",
@@ -108,12 +108,12 @@
       "overall_status": "LOOKING_FOR_BUY",
       "signal": null,
       "category": "Intraday IndianMarket",
-      "timestamp": "2025-12-24T01:28:20.872811"
+      "timestamp": "2025-12-24T01:29:45.583952"
     },
     {
       "instrument": "Gold",
       "flag": "\ud83e\udd47",
-      "ltp": 4518.60009765625,
+      "ltp": 4518.2001953125,
       "daily": {
         "macd_line": 77.15796588483772,
         "bias": "BULLISH",
@@ -135,12 +135,12 @@
       "overall_status": "CONFLICT (Trend/MOM/Filter Mismatch)",
       "signal": null,
       "category": "Metals/Energy",
-      "timestamp": "2025-12-24T01:28:21.566505"
+      "timestamp": "2025-12-24T01:29:46.203035"
     },
     {
       "instrument": "Silver",
       "flag": "\ud83e\udd48",
-      "ltp": 71.52999877929688,
+      "ltp": 71.5,
       "daily": {
         "macd_line": 4.001420702327515,
         "bias": "BULLISH",
@@ -178,12 +178,12 @@
         "category": "Metals/Energy"
       },
       "category": "Metals/Energy",
-      "timestamp": "2025-12-24T01:28:22.187645"
+      "timestamp": "2025-12-24T01:29:46.811774"
     },
     {
       "instrument": "Brent Crude Oil",
       "flag": "\ud83c\uddec\ud83c\udde7\ud83d\udee2\ufe0f",
-      "ltp": 61.88999938964844,
+      "ltp": 61.900001525878906,
       "daily": {
         "macd_line": -0.8561372539654784,
         "bias": "BEARISH",
@@ -205,12 +205,12 @@
       "overall_status": "CONFLICT (Trend/MOM/Filter Mismatch)",
       "signal": null,
       "category": "Metals/Energy",
-      "timestamp": "2025-12-24T01:28:22.837339"
+      "timestamp": "2025-12-24T01:29:47.438183"
     },
     {
       "instrument": "Natural Gas",
       "flag": "\ud83d\udd25",
-      "ltp": 3.8910000324249268,
+      "ltp": 3.8949999809265137,
       "daily": {
         "macd_line": -0.09617675735424847,
         "bias": "NEUTRAL",
@@ -232,12 +232,12 @@
       "overall_status": "CONFLICT (Trend/MOM/Filter Mismatch)",
       "signal": null,
       "category": "Metals/Energy",
-      "timestamp": "2025-12-24T01:28:23.120246"
+      "timestamp": "2025-12-24T01:29:47.655729"
     },
     {
       "instrument": "Platinum",
       "flag": "\ud83d\udc8d",
-      "ltp": 2292.0,
+      "ltp": 2292.300048828125,
       "daily": {
         "macd_line": 108.24651117953658,
         "bias": "BULLISH",
@@ -259,12 +259,12 @@
       "overall_status": "LOOKING_FOR_BUY",
       "signal": null,
       "category": "Metals/Energy",
-      "timestamp": "2025-12-24T01:28:23.843841"
+      "timestamp": "2025-12-24T01:29:48.239687"
     },
     {
       "instrument": "Palladium",
       "flag": "\ud83d\udc8e",
-      "ltp": 1963.5,
+      "ltp": 1964.5,
       "daily": {
         "macd_line": 80.96527600943136,
         "bias": "BULLISH",
@@ -286,7 +286,7 @@
       "overall_status": "LOOKING_FOR_BUY",
       "signal": null,
       "category": "Metals/Energy",
-      "timestamp": "2025-12-24T01:28:24.466766"
+      "timestamp": "2025-12-24T01:29:48.818221"
     },
     {
       "instrument": "EUR/USD",
@@ -313,12 +313,12 @@
       "overall_status": "CONFLICT (Trend/MOM/Filter Mismatch)",
       "signal": null,
       "category": "Forex",
-      "timestamp": "2025-12-24T01:28:25.072533"
+      "timestamp": "2025-12-24T01:29:49.657752"
     },
     {
       "instrument": "USD/JPY",
       "flag": "\ud83c\uddfa\ud83c\uddf8\ud83c\uddef\ud83c\uddf5",
-      "ltp": 156.18800354003906,
+      "ltp": 156.18499755859375,
       "daily": {
         "macd_line": 0.42242833584080586,
         "bias": "BULLISH",
@@ -340,7 +340,7 @@
       "overall_status": "CONFLICT (Trend/MOM/Filter Mismatch)",
       "signal": null,
       "category": "Forex",
-      "timestamp": "2025-12-24T01:28:25.672647"
+      "timestamp": "2025-12-24T01:29:50.279537"
     },
     {
       "instrument": "AUD/USD",
@@ -367,12 +367,12 @@
       "overall_status": "CONFLICT (Trend/MOM/Filter Mismatch)",
       "signal": null,
       "category": "Forex",
-      "timestamp": "2025-12-24T01:28:26.385851"
+      "timestamp": "2025-12-24T01:29:50.893639"
     },
     {
       "instrument": "USD/CHF",
       "flag": "\ud83c\uddfa\ud83c\uddf8\ud83c\udde8\ud83c\udded",
-      "ltp": 0.7875800132751465,
+      "ltp": 0.7875999808311462,
       "daily": {
         "macd_line": -0.001923955315835113,
         "bias": "BEARISH",
@@ -394,12 +394,12 @@
       "overall_status": "CONFLICT (Trend/MOM/Filter Mismatch)",
       "signal": null,
       "category": "Forex",
-      "timestamp": "2025-12-24T01:28:27.028690"
+      "timestamp": "2025-12-24T01:29:51.519080"
     },
     {
       "instrument": "NZD/USD",
       "flag": "\ud83c\uddf3\ud83c\uddff\ud83c\uddfa\ud83c\uddf8",
-      "ltp": 0.5841804146766663,
+      "ltp": 0.58414626121521,
       "daily": {
         "macd_line": 0.0021001203523307588,
         "bias": "NEUTRAL",
@@ -421,12 +421,12 @@
       "overall_status": "CONFLICT (Trend/MOM/Filter Mismatch)",
       "signal": null,
       "category": "Forex",
-      "timestamp": "2025-12-24T01:28:27.829905"
+      "timestamp": "2025-12-24T01:29:52.198011"
     },
     {
       "instrument": "USD/CAD",
       "flag": "\ud83c\uddfa\ud83c\uddf8\ud83c\udde8\ud83c\udde6",
-      "ltp": 1.3694900274276733,
+      "ltp": 1.3693699836730957,
       "daily": {
         "macd_line": -0.006545036458240894,
         "bias": "BEARISH",
@@ -464,12 +464,12 @@
         "category": "Forex"
       },
       "category": "Forex",
-      "timestamp": "2025-12-24T01:28:28.504934"
+      "timestamp": "2025-12-24T01:29:52.934662"
     },
     {
       "instrument": "EUR/GBP",
       "flag": "\ud83c\uddea\ud83c\uddfa\ud83c\uddec\ud83c\udde7",
-      "ltp": 0.8735600113868713,
+      "ltp": 0.8734899759292603,
       "daily": {
         "macd_line": -0.0003033810051809027,
         "bias": "NEUTRAL",
@@ -491,12 +491,12 @@
       "overall_status": "CONFLICT (Trend/MOM/Filter Mismatch)",
       "signal": null,
       "category": "Forex",
-      "timestamp": "2025-12-24T01:28:29.175071"
+      "timestamp": "2025-12-24T01:29:53.555429"
     },
     {
       "instrument": "EUR/JPY",
       "flag": "\ud83c\uddea\ud83c\uddfa\ud83c\uddef\ud83c\uddf5",
-      "ltp": 184.10899353027344,
+      "ltp": 184.1009979248047,
       "daily": {
         "macd_line": 1.0789263423318687,
         "bias": "BULLISH",
@@ -518,12 +518,12 @@
       "overall_status": "CONFLICT (Trend/MOM/Filter Mismatch)",
       "signal": null,
       "category": "Forex",
-      "timestamp": "2025-12-24T01:28:29.805974"
+      "timestamp": "2025-12-24T01:29:54.233849"
     },
     {
       "instrument": "GBP/JPY",
       "flag": "\ud83c\uddec\ud83c\udde7\ud83c\uddef\ud83c\uddf5",
-      "ltp": 210.75,
+      "ltp": 210.76100158691406,
       "daily": {
         "macd_line": 1.3001802677899548,
         "bias": "BULLISH",
@@ -545,12 +545,12 @@
       "overall_status": "CONFLICT (Trend/MOM/Filter Mismatch)",
       "signal": null,
       "category": "Forex",
-      "timestamp": "2025-12-24T01:28:30.437884"
+      "timestamp": "2025-12-24T01:29:54.970835"
     },
     {
       "instrument": "AUD/JPY",
       "flag": "\ud83c\udde6\ud83c\uddfa\ud83c\uddef\ud83c\uddf5",
-      "ltp": 104.60099792480469,
+      "ltp": 104.5989990234375,
       "daily": {
         "macd_line": 0.6754105877940759,
         "bias": "BULLISH",
@@ -572,12 +572,12 @@
       "overall_status": "LOOKING_FOR_BUY",
       "signal": null,
       "category": "Forex",
-      "timestamp": "2025-12-24T01:28:31.003042"
+      "timestamp": "2025-12-24T01:29:55.567078"
     },
     {
       "instrument": "NZD/JPY",
       "flag": "\ud83c\uddf3\ud83c\uddff\ud83c\uddef\ud83c\uddf5",
-      "ltp": 91.17500305175781,
+      "ltp": 91.16699981689453,
       "daily": {
         "macd_line": 0.5690787352058351,
         "bias": "BULLISH",
@@ -599,12 +599,12 @@
       "overall_status": "LOOKING_FOR_BUY",
       "signal": null,
       "category": "Forex",
-      "timestamp": "2025-12-24T01:28:31.638317"
+      "timestamp": "2025-12-24T01:29:56.208605"
     },
     {
       "instrument": "GBP/CHF",
       "flag": "\ud83c\uddec\ud83c\udde7\ud83c\udde8\ud83c\udded",
-      "ltp": 1.0629199743270874,
+      "ltp": 1.0630199909210205,
       "daily": {
         "macd_line": 0.0012057973629191476,
         "bias": "NEUTRAL",
@@ -626,12 +626,12 @@
       "overall_status": "CONFLICT (Trend/MOM/Filter Mismatch)",
       "signal": null,
       "category": "Forex",
-      "timestamp": "2025-12-24T01:28:32.293973"
+      "timestamp": "2025-12-24T01:29:56.856944"
     },
     {
       "instrument": "EUR/CAD",
       "flag": "\ud83c\uddea\ud83c\uddfa\ud83c\udde8\ud83c\udde6",
-      "ltp": 1.6142899990081787,
+      "ltp": 1.6140400171279907,
       "daily": {
         "macd_line": -0.0023671145816888117,
         "bias": "NEUTRAL",
@@ -653,12 +653,12 @@
       "overall_status": "CONFLICT (Trend/MOM/Filter Mismatch)",
       "signal": null,
       "category": "Forex",
-      "timestamp": "2025-12-24T01:28:32.962694"
+      "timestamp": "2025-12-24T01:29:57.451630"
     },
     {
       "instrument": "AUD/CAD",
       "flag": "\ud83c\udde6\ud83c\uddfa\ud83c\udde8\ud83c\udde6",
-      "ltp": 0.9171000123023987,
+      "ltp": 0.9170200228691101,
       "daily": {
         "macd_line": -0.0007331821637314162,
         "bias": "NEUTRAL",
@@ -680,12 +680,12 @@
       "overall_status": "CONFLICT (Trend/MOM/Filter Mismatch)",
       "signal": null,
       "category": "Forex",
-      "timestamp": "2025-12-24T01:28:33.848306"
+      "timestamp": "2025-12-24T01:29:58.144274"
     },
     {
       "instrument": "CAD/JPY",
       "flag": "\ud83c\udde8\ud83c\udde6\ud83c\uddef\ud83c\uddf5",
-      "ltp": 114.04199981689453,
+      "ltp": 114.0530014038086,
       "daily": {
         "macd_line": 0.8281172260950456,
         "bias": "BULLISH",
@@ -707,12 +707,12 @@
       "overall_status": "CONFLICT (Trend/MOM/Filter Mismatch)",
       "signal": null,
       "category": "Forex",
-      "timestamp": "2025-12-24T01:28:34.604115"
+      "timestamp": "2025-12-24T01:29:58.777214"
     },
     {
       "instrument": "CHF/JPY",
       "flag": "\ud83c\udde8\ud83c\udded\ud83c\uddef\ud83c\uddf5",
-      "ltp": 198.2550048828125,
+      "ltp": 198.23500061035156,
       "daily": {
         "macd_line": 0.9976381001133916,
         "bias": "BULLISH",
@@ -734,12 +734,12 @@
       "overall_status": "CONFLICT (Trend/MOM/Filter Mismatch)",
       "signal": null,
       "category": "Forex",
-      "timestamp": "2025-12-24T01:28:35.295639"
+      "timestamp": "2025-12-24T01:29:59.467258"
     },
     {
       "instrument": "Bitcoin",
       "flag": "\u20bf",
-      "ltp": 87735.4921875,
+      "ltp": 87692.890625,
       "daily": {
         "macd_line": -1454.802893468499,
         "bias": "BEARISH",
@@ -761,12 +761,12 @@
       "overall_status": "LOOKING_FOR_SELL",
       "signal": null,
       "category": "Crypto Scalping",
-      "timestamp": "2025-12-24T01:28:36.122280"
+      "timestamp": "2025-12-24T01:30:00.163602"
     },
     {
       "instrument": "Ethereum",
       "flag": "\u039e",
-      "ltp": 2939.108642578125,
+      "ltp": 2940.1748046875,
       "daily": {
         "macd_line": -50.85445780052896,
         "bias": "BEARISH",
@@ -788,12 +788,12 @@
       "overall_status": "LOOKING_FOR_SELL",
       "signal": null,
       "category": "Crypto Scalping",
-      "timestamp": "2025-12-24T01:28:36.983777"
+      "timestamp": "2025-12-24T01:30:00.915125"
     },
     {
       "instrument": "Solana",
       "flag": "\u2600\ufe0f",
-      "ltp": 123.84078979492188,
+      "ltp": 123.85334777832031,
       "daily": {
         "macd_line": -4.734919763470174,
         "bias": "BEARISH",
@@ -815,12 +815,12 @@
       "overall_status": "LOOKING_FOR_SELL",
       "signal": null,
       "category": "Crypto Scalping",
-      "timestamp": "2025-12-24T01:28:37.814665"
+      "timestamp": "2025-12-24T01:30:01.610091"
     },
     {
       "instrument": "Ripple",
       "flag": "\ud83d\udca7",
-      "ltp": 1.8815321922302246,
+      "ltp": 1.8816298246383667,
       "daily": {
         "macd_line": -0.07374041528422781,
         "bias": "BEARISH",
@@ -842,12 +842,12 @@
       "overall_status": "LOOKING_FOR_SELL",
       "signal": null,
       "category": "Crypto Scalping",
-      "timestamp": "2025-12-24T01:28:38.637994"
+      "timestamp": "2025-12-24T01:30:02.684315"
     },
     {
       "instrument": "Cardano",
       "flag": "\u20b3",
-      "ltp": 0.3610437214374542,
+      "ltp": 0.36104050278663635,
       "daily": {
         "macd_line": -0.025683896437896536,
         "bias": "BEARISH",
@@ -869,12 +869,12 @@
       "overall_status": "LOOKING_FOR_SELL",
       "signal": null,
       "category": "Crypto Scalping",
-      "timestamp": "2025-12-24T01:28:39.798522"
+      "timestamp": "2025-12-24T01:30:03.478325"
     },
     {
       "instrument": "Dogecoin",
       "flag": "\ud83d\udc15",
-      "ltp": 0.12895911931991577,
+      "ltp": 0.12889042496681213,
       "daily": {
         "macd_line": -0.006274023052214389,
         "bias": "BEARISH",
@@ -896,12 +896,12 @@
       "overall_status": "LOOKING_FOR_SELL",
       "signal": null,
       "category": "Crypto Scalping",
-      "timestamp": "2025-12-24T01:28:40.603922"
+      "timestamp": "2025-12-24T01:30:04.249160"
     },
     {
       "instrument": "Polkadot",
       "flag": "\u26ab",
-      "ltp": 1.758547067642212,
+      "ltp": 1.758808970451355,
       "daily": {
         "macd_line": -0.1710065548817501,
         "bias": "BEARISH",
@@ -923,7 +923,7 @@
       "overall_status": "CONFLICT (Trend/MOM/Filter Mismatch)",
       "signal": null,
       "category": "Crypto Scalping",
-      "timestamp": "2025-12-24T01:28:41.319651"
+      "timestamp": "2025-12-24T01:30:05.175031"
     },
     {
       "instrument": "Nifty 50",
@@ -950,7 +950,7 @@
       "overall_status": "LOOKING_FOR_BUY",
       "signal": null,
       "category": "Intraday IndianMarket",
-      "timestamp": "2025-12-24T01:28:41.859912"
+      "timestamp": "2025-12-24T01:30:05.694223"
     },
     {
       "instrument": "Bank Nifty",
@@ -977,7 +977,7 @@
       "overall_status": "LOOKING_FOR_BUY",
       "signal": null,
       "category": "Intraday IndianMarket",
-      "timestamp": "2025-12-24T01:28:42.511224"
+      "timestamp": "2025-12-24T01:30:06.196882"
     },
     {
       "instrument": "Sensex",
@@ -1004,7 +1004,7 @@
       "overall_status": "LOOKING_FOR_BUY",
       "signal": null,
       "category": "Intraday IndianMarket",
-      "timestamp": "2025-12-24T01:28:43.032135"
+      "timestamp": "2025-12-24T01:30:06.678047"
     }
   ]
 }

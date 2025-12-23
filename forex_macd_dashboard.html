@@ -617,10 +617,19 @@
 
                 // Filter by category
                 let filteredData = data.data;
+                console.log('Total instruments:', data.data.length);
+                console.log('Current category:', currentCategory);
+
                 if (currentCategory === 'Active') {
                     filteredData = data.data.filter(inst => inst.signal !== null);
                 } else if (currentCategory !== 'All') {
                     filteredData = data.data.filter(inst => inst.category === currentCategory);
+                }
+                console.log('Filtered instruments:', filteredData.length);
+
+                if (filteredData.length === 0) {
+                    container.innerHTML = `<div style="grid-column: 1/-1; text-align: center; padding: 4rem; color: var(--text-secondary);">No instruments found for category: ${currentCategory}</div>`;
+                    return;
                 }
 
                 // Environment detection: Local vs Hugging Face
