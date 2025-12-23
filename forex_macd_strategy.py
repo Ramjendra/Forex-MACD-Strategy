@@ -130,12 +130,7 @@ def fetch_data(symbol: str, interval: str, period: str) -> pd.DataFrame:
     """Fetch data from Yahoo Finance with retries."""
     for attempt in range(3):
         try:
-            # Use a custom session with a user-agent to avoid rate limits
-            import requests
-            session = requests.Session()
-            session.headers.update({'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'})
-            
-            ticker = yf.Ticker(symbol, session=session)
+            ticker = yf.Ticker(symbol)
             df = ticker.history(period=period, interval=interval)
             if not df.empty:
                 return df
