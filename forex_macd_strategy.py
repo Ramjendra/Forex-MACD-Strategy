@@ -226,64 +226,28 @@ def analyze_instrument(instrument: Dict) -> Dict:
     
     category = instrument.get('category', 'Forex')
     
-    # 1. Fetch Data based on Category
-    if category in ["Intraday IndianMarket", "Cryptos"]:
-        # Intraday: 4H Trend (from 1H), 1H Momentum, 15m Entry
-        trend_df_raw = fetch_data(symbol, "1h", "1y")
-        mom_df = trend_df_raw.copy()
-        entry_df = fetch_data(symbol, "15m", "30d")
+    # Standardized Timeframes for all categories:
+    # Trend: 1D
+    # Momentum: 4H (resampled from 1H)
+    # Entry: 1H
+    
+    trend_df = fetch_data(symbol, "1d", "2y")
+    mom_df_raw = fetch_data(symbol, "1h", "1y")
+    entry_df = fetch_data(symbol, "1h", "30d")
+    
+    if trend_df.empty or entry_df.empty or mom_df_raw.empty:
+        print(f"  ⚠️ Insufficient data for {name}")
+        return None
         
-        if trend_df_raw.empty or entry_df.empty:
-            print("  ⚠️ Insufficient data")
-            return None
-            
-        # Resample 1H to 4H for Trend
-        trend_df_raw.index = pd.to_datetime(trend_df_raw.index)
-        trend_df = trend_df_raw.resample('4h').agg({
-            'Open': 'first', 'High': 'max', 'Low': 'min', 'Close': 'last', 'Volume': 'sum'
-        }).dropna()
-        
-        trend_label = "4H Trend"
-        mom_label = "1H MOM"
-        entry_label = "15m Entry"
-    elif category == "Crypto Scalping":
-        # Scalping: 4H Trend (from 1H), 1H Momentum, 15m Entry
-        trend_df_raw = fetch_data(symbol, "1h", "1y")
-        mom_df = trend_df_raw.copy()
-        entry_df = fetch_data(symbol, "15m", "30d")
-        
-        if trend_df_raw.empty or entry_df.empty:
-            print("  ⚠️ Insufficient data for scalping")
-            return None
-            
-        # Resample 1H to 4H for Trend
-        trend_df_raw.index = pd.to_datetime(trend_df_raw.index)
-        trend_df = trend_df_raw.resample('4h').agg({
-            'Open': 'first', 'High': 'max', 'Low': 'min', 'Close': 'last', 'Volume': 'sum'
-        }).dropna()
-        
-        trend_label = "4H Trend"
-        mom_label = "1H MOM"
-        entry_label = "15m Entry"
-    else:
-        # Standard: Daily Trend, 4H Momentum (from 1H), 1H Entry
-        trend_df = fetch_data(symbol, "1d", "2y")
-        mom_df_raw = fetch_data(symbol, "1h", "1y")
-        entry_df = fetch_data(symbol, "1h", "30d")
-        
-        if trend_df.empty or entry_df.empty:
-            print("  ⚠️ Insufficient data")
-            return None
-            
-        # Resample 1H to 4H for Momentum
-        mom_df_raw.index = pd.to_datetime(mom_df_raw.index)
-        mom_df = mom_df_raw.resample('4h').agg({
-            'Open': 'first', 'High': 'max', 'Low': 'min', 'Close': 'last', 'Volume': 'sum'
-        }).dropna()
-        
-        trend_label = "Daily"
-        mom_label = "4H MOM"
-        entry_label = "1H Entry"
+    # Resample 1H to 4H for Momentum
+    mom_df_raw.index = pd.to_datetime(mom_df_raw.index)
+    mom_df = mom_df_raw.resample('4h').agg({
+        'Open': 'first', 'High': 'max', 'Low': 'min', 'Close': 'last', 'Volume': 'sum'
+    }).dropna()
+    
+    trend_label = "1D Trend"
+    mom_label = "4H MOM"
+    entry_label = "1H Entry"
 
     # 2. Calculate Indicators
     trend_macd = calculate_macd(trend_df)

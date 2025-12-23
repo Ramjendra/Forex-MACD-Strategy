@@ -53,7 +53,7 @@ def capture_trade_screenshot(res: Dict, event_type: str, output_path: str):
     # Status Badges (Daily, 4H, 1H)
     badge_y = 85
     badges = [
-        ("DAILY", res.get('daily', {}).get('bias', 'NEUTRAL')),
+        ("1D TREND", res.get('daily', {}).get('bias', 'NEUTRAL')),
         ("4H MOM", res.get('h4', {}).get('bias', 'NEUTRAL')),
         ("1H ENTRY", res.get('h1', {}).get('status', 'NEUTRAL'))
     ]
