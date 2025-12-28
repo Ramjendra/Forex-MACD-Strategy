@@ -1,0 +1,68 @@
+[
+  {
+    "instrument": "Silver",
+    "event": "ENTRY",
+    "price": 71.23999786376953,
+    "time": "2025-12-23 22:47:29",
+    "category": "Metals/Energy",
+    "entry_price": 71.23999786376953,
+    "entry_time": "2025-12-23T22:47:29.731296",
+    "type": "BUY",
+    "initial_sl": 70.42196110316685
+  },
+  {
+    "instrument": "Silver",
+    "event": "ENTRY",
+    "price": 71.08999633789062,
+    "time": "2025-12-23 22:51:12",
+    "category": "Metals/Energy",
+    "entry_price": 71.08999633789062,
+    "entry_time": "2025-12-23T22:51:12.956908",
+    "type": "BUY",
+    "initial_sl": 70.27195957728794
+  },
+  {
+    "instrument": "Ripple",
+    "event": "ENTRY",
+    "price": 1.8715120553970337,
+    "time": "2025-12-23 23:34:03",
+    "category": "Crypto Scalping",
+    "entry_price": 1.8715120553970337,
+    "entry_time": "2025-12-23T23:34:03.644291",
+    "type": "SELL",
+    "initial_sl": 1.8804892429283686
+  },
+  {
+    "instrument": "Ripple",
+    "event": "ENTRY",
+    "price": 1.8714736700057983,
+    "time": "2025-12-23 23:37:09",
+    "category": "Crypto Scalping",
+    "entry_price": 1.8714736700057983,
+    "entry_time": "2025-12-23T23:37:09.708003",
+    "type": "SELL",
+    "initial_sl": 1.8804508575371333
+  },
+  {
+    "instrument": "Ripple",
+    "event": "SL_HIT",
+    "price": 1.8807830810546875,
+    "time": "2025-12-24 00:10:29",
+    "category": "Crypto Scalping",
+    "entry_price": 1.8715120553970337,
+    "entry_time": "2025-12-23T23:34:03.644291",
+    "type": "SELL",
+    "initial_sl": 1.8804892429283686
+  },
+  {
+    "instrument": "Ripple",
+    "event": "SL_HIT",
+    "price": 1.8810229301452637,
+    "time": "2025-12-24 00:12:43",
+    "category": "Crypto Scalping",
+    "entry_price": 1.8714736700057983,
+    "entry_time": "2025-12-23T23:37:09.708003",
+    "type": "SELL",
+    "initial_sl": 1.8804508575371333
+  }
+]

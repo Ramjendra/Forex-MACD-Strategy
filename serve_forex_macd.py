@@ -16,8 +16,46 @@ from datetime import datetime
 PORT = int(os.environ.get("PORT", 8003))
 BASE_DIR = Path(__file__).parent
 VISITORS_FILE = BASE_DIR / "visitors.json"
+PWA_INSTALLS_FILE = BASE_DIR / "pwa_installs.json"
 
 import time
+
+# Try to import FeedbackCollector for email functionality
+try:
+    from feedback_collector import FeedbackCollector
+    feedback_collector = FeedbackCollector()
+    print("✅ Email feedback system initialized")
+except Exception as e:
+    print(f"⚠️ Email feedback not available: {e}")
+    print("   Feedback will be logged locally only")
+    feedback_collector = None
+
+def get_pwa_installs():
+    """Get PWA install count and list"""
+    if PWA_INSTALLS_FILE.exists():
+        try:
+            with open(PWA_INSTALLS_FILE, 'r') as f:
+                return json.load(f)
+        except:
+            pass
+    return {"count": 0, "installs": []}
+
+def add_pwa_install(ip_address, user_agent):
+    """Record a new PWA install"""
+    data = get_pwa_installs()
+    install_info = {
+        "ip": ip_address,
+        "user_agent": user_agent[:100] if user_agent else "Unknown",
+        "time": datetime.now().isoformat()
+    }
+    data["installs"].append(install_info)
+    data["count"] = len(data["installs"])
+    
+    with open(PWA_INSTALLS_FILE, 'w') as f:
+        json.dump(data, f, indent=2)
+    
+    return data["count"]
+
 
 ACTIVE_USERS = {} # {ip: last_seen_timestamp}
 
@@ -57,6 +95,16 @@ class MyHTTPRequestHandler(http.server.SimpleHTTPRequestHandler):
             
             stats = get_visitor_stats()
             self.wfile.write(json.dumps(stats).encode())
+            return
+        
+        if self.path == '/api/pwa-installs':
+            self.send_response(200)
+            self.send_header('Content-type', 'application/json')
+            self.send_header('Access-Control-Allow-Origin', '*')
+            self.end_headers()
+            
+            data = get_pwa_installs()
+            self.wfile.write(json.dumps({"count": data["count"]}).encode())
             return
             
         if self.path == '/api/download-report':
@@ -161,35 +209,92 @@ class MyHTTPRequestHandler(http.server.SimpleHTTPRequestHandler):
         return super().do_GET()
 
     def do_POST(self):
-        if self.path == '/api/feedback':
-            content_length = int(self.headers['Content-Length'])
-            post_data = self.rfile.read(content_length)
-            feedback_data = json.loads(post_data.decode('utf-8'))
-            
-            feedback_file = BASE_DIR / "feedback.json"
-            feedbacks = []
-            if feedback_file.exists():
-                try:
-                    with open(feedback_file, 'r') as f:
-                        feedbacks = json.load(f)
-                except:
-                    pass
-            
-            feedbacks.append({
-                "time": Path(__file__).stat().st_mtime, # Using mtime as a simple timestamp
-                "ip": self.client_address[0],
-                "feedback": feedback_data.get('feedback')
-            })
-            
-            with open(feedback_file, 'w') as f:
-                json.dump(feedbacks, f, indent=2)
+        if self.path == '/api/pwa-install':
+            try:
+                user_agent = self.headers.get('User-Agent', 'Unknown')
+                ip_address = self.client_address[0]
+                count = add_pwa_install(ip_address, user_agent)
                 
-            self.send_response(200)
-            self.send_header('Content-type', 'application/json')
-            self.send_header('Access-Control-Allow-Origin', '*')
-            self.end_headers()
-            self.wfile.write(json.dumps({"status": "success"}).encode())
-            return
+                print(f"📲 PWA Install recorded! Total: {count}")
+                
+                self.send_response(200)
+                self.send_header('Content-type', 'application/json')
+                self.send_header('Access-Control-Allow-Origin', '*')
+                self.end_headers()
+                self.wfile.write(json.dumps({"success": True, "count": count}).encode())
+                return
+            except Exception as e:
+                print(f"❌ Error recording PWA install: {e}")
+                self.send_response(500)
+                self.send_header('Content-type', 'application/json')
+                self.send_header('Access-Control-Allow-Origin', '*')
+                self.end_headers()
+                self.wfile.write(json.dumps({"success": False, "error": str(e)}).encode())
+                return
+        
+        if self.path == '/api/feedback':
+            try:
+                content_length = int(self.headers['Content-Length'])
+                post_data = self.rfile.read(content_length)
+                feedback_data = json.loads(post_data.decode('utf-8'))
+                
+                # Add timestamp and IP
+                feedback_data['timestamp'] = datetime.now().isoformat()
+                feedback_data['ip'] = self.client_address[0]
+                
+                # Log feedback locally
+                feedback_file = BASE_DIR / "feedback_log.json"
+                feedbacks = []
+                if feedback_file.exists():
+                    try:
+                        with open(feedback_file, 'r') as f:
+                            feedbacks = json.load(f)
+                    except:
+                        pass
+                
+                feedbacks.append(feedback_data)
+                
+                # Keep last 100 feedbacks
+                feedbacks = feedbacks[-100:]
+                
+                with open(feedback_file, 'w') as f:
+                    json.dump(feedbacks, f, indent=2)
+                
+                # Try to send email if feedback collector is available
+                email_sent = False
+                if feedback_collector:
+                    try:
+                        email_sent = feedback_collector.send_feedback_email(feedback_data)
+                        if email_sent:
+                            print(f"✅ Feedback email sent for: {feedback_data.get('name', 'Anonymous')}")
+                    except Exception as e:
+                        print(f"⚠️ Failed to send feedback email: {e}")
+                
+                # Send response
+                self.send_response(200)
+                self.send_header('Content-type', 'application/json')
+                self.send_header('Access-Control-Allow-Origin', '*')
+                self.end_headers()
+                
+                response_message = {
+                    "success": True,
+                    "message": "Thank you for your feedback! " + 
+                              ("We've received it via email." if email_sent else "It has been logged.")
+                }
+                self.wfile.write(json.dumps(response_message).encode())
+                return
+                
+            except Exception as e:
+                print(f"❌ Error processing feedback: {e}")
+                self.send_response(500)
+                self.send_header('Content-type', 'application/json')
+                self.send_header('Access-Control-Allow-Origin', '*')
+                self.end_headers()
+                self.wfile.write(json.dumps({
+                    "success": False,
+                    "error": "Failed to process feedback"
+                }).encode())
+                return
 
     def end_headers(self):
         self.send_header('Access-Control-Allow-Origin', '*')

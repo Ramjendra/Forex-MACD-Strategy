@@ -1,0 +1,57 @@
+{
+  "last_update": "2025-12-24T21:20:00",
+  "source": "A1Trading / Sample Data",
+  "instructions": "Update these values from https://www.a1trading.com/retail-sentiment/",
+  "instruments": {
+    "EUR/USD": {
+      "long": 45.0,
+      "short": 55.0,
+      "net_position": -10.0
+    },
+    "USD/JPY": {
+      "long": 68.0,
+      "short": 32.0,
+      "net_position": 36.0
+    },
+    "GBP/USD": {
+      "long": 42.0,
+      "short": 58.0,
+      "net_position": -16.0
+    },
+    "USD/CHF": {
+      "long": 72.0,
+      "short": 28.0,
+      "net_position": 44.0
+    },
+    "USD/CAD": {
+      "long": 65.0,
+      "short": 35.0,
+      "net_position": 30.0
+    },
+    "AUD/USD": {
+      "long": 38.0,
+      "short": 62.0,
+      "net_position": -24.0
+    },
+    "NZD/USD": {
+      "long": 41.0,
+      "short": 59.0,
+      "net_position": -18.0
+    },
+    "EUR/GBP": {
+      "long": 52.0,
+      "short": 48.0,
+      "net_position": 4.0
+    },
+    "EUR/JPY": {
+      "long": 55.0,
+      "short": 45.0,
+      "net_position": 10.0
+    },
+    "GBP/JPY": {
+      "long": 58.0,
+      "short": 42.0,
+      "net_position": 16.0
+    }
+  }
+}

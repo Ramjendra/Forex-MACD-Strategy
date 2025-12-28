@@ -1,0 +1,69 @@
+╔══════════════════════════════════════════════════════════════════════════════╗
+║              ✅ NSE LIVE MOCK DATA - SUCCESSFULLY INJECTED!                  ║
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+📊 MOCK DATA STATUS: ACTIVE
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ 🟢 Nifty Future - ACTIVE BUY                                                 │
+├──────────────────────────────────────────────────────────────────────────────┤
+│ Status:      ACTIVE_BUY                                                      │
+│ Price:       26,285.50                                                       │
+│ Entry:       26,150.00                                                       │
+│ Profit:      +135.50 points ✅                                               │
+│ TP1:         HIT ✅                                                          │
+│ SL:          Moved to Breakeven (Risk-Free)                                  │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ 🔴 Bank Nifty Future - ACTIVE SELL + REENTRY                                 │
+├──────────────────────────────────────────────────────────────────────────────┤
+│ Status:      ACTIVE_SELL                                                     │
+│ Price:       58,950.25                                                       │
+│ Entry:       59,200.00                                                       │
+│ Profit:      +249.75 points ✅                                               │
+│ TP1:         HIT ✅                                                          │
+│ SL:          Moved to Breakeven (Risk-Free)                                  │
+│ Reentry:     AVAILABLE (85% confidence at 58,975.00)                         │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+╔══════════════════════════════════════════════════════════════════════════════╗
+║                          🌐 ACCESS YOUR DASHBOARD                            ║
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+🖥️  LOCAL:  http://localhost:8000
+🌐 ONLINE:  https://huggingface.co/spaces/dixitramjendra/MACD_Strategy
+
+📍 Server Status: RUNNING (PID: 195353)
+
+╔══════════════════════════════════════════════════════════════════════════════╗
+║                              HOW TO VIEW                                     ║
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+1. Open http://localhost:8000 in your browser
+2. Wait for page to load (refresh if needed)
+3. Click on "🇮🇳 NSE Live" tab
+4. You'll see both Nifty and Bank Nifty with active signals!
+
+╔══════════════════════════════════════════════════════════════════════════════╗
+║                         🔧 TROUBLESHOOTING                                   ║
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+If page doesn't load, wait 10 seconds for server to fully start, then refresh.
+
+# Check server is running:
+ps aux | grep serve_forex_macd
+
+# Restart server if needed:
+cd /home/ramram/Desktop/SELF_LEARNING/Medical\ RAG/documents/Signal/Forex_MACD_Strategy
+python3 serve_forex_macd.py
+
+# Re-inject mock data:
+python3 generate_nse_mock_data.py
+
+═══════════════════════════════════════════════════════════════════════════════
+
+✅ DEPLOYMENT STATUS:
+   - Local:  READY ✅
+   - HuggingFace: DEPLOYED ✅
+   - Mock Data: INJECTED ✅

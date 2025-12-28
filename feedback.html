@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback - Trading Dashboard</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .feedback-container {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            max-width: 600px;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .feedback-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+        }
+
+        .feedback-header h1 {
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+
+        .feedback-header p {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+
+        .feedback-form {
+            padding: 40px 30px;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            font-family: inherit;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .rating-group {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .rating-btn {
+            flex: 1;
+            min-width: 50px;
+            padding: 10px;
+            border: 2px solid #e0e0e0;
+            background: white;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 20px;
+            text-align: center;
+        }
+
+        .rating-btn:hover {
+            border-color: #667eea;
+            transform: translateY(-2px);
+        }
+
+        .rating-btn.active {
+            background: #667eea;
+            border-color: #667eea;
+            color: white;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+        }
+
+        .submit-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .message {
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            display: none;
+        }
+
+        .message.success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+
+        .message.error {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+
+        .message.show {
+            display: block;
+            animation: slideIn 0.3s ease;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .back-link {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .back-link a {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .back-link a:hover {
+            text-decoration: underline;
+        }
+
+        .required {
+            color: #dc3545;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="feedback-container">
+        <div class="feedback-header">
+            <h1>📊 Feedback</h1>
+            <p>Help us improve your trading experience</p>
+        </div>
+
+        <form class="feedback-form" id="feedbackForm">
+            <div id="messageBox" class="message"></div>
+
+            <div class="form-group">
+                <label for="name">Name <span class="required">*</span></label>
+                <input type="text" id="name" name="name" placeholder="Your name" required>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="your.email@example.com">
+            </div>
+
+            <div class="form-group">
+                <label for="category">Category <span class="required">*</span></label>
+                <select id="category" name="category" required>
+                    <option value="">Select a category</option>
+                    <option value="Bug Report">🐛 Bug Report</option>
+                    <option value="Feature Request">💡 Feature Request</option>
+                    <option value="Performance">⚡ Performance Issue</option>
+                    <option value="UI/UX">🎨 UI/UX Feedback</option>
+                    <option value="Strategy">📈 Strategy Feedback</option>
+                    <option value="General">💬 General Feedback</option>
+                    <option value="Other">📝 Other</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Rating <span class="required">*</span></label>
+                <div class="rating-group">
+                    <button type="button" class="rating-btn" data-rating="1">⭐</button>
+                    <button type="button" class="rating-btn" data-rating="2">⭐⭐</button>
+                    <button type="button" class="rating-btn" data-rating="3">⭐⭐⭐</button>
+                    <button type="button" class="rating-btn" data-rating="4">⭐⭐⭐⭐</button>
+                    <button type="button" class="rating-btn" data-rating="5">⭐⭐⭐⭐⭐</button>
+                </div>
+                <input type="hidden" id="rating" name="rating" required>
+            </div>
+
+            <div class="form-group">
+                <label for="message">Message <span class="required">*</span></label>
+                <textarea id="message" name="message"
+                    placeholder="Share your thoughts, suggestions, or report issues..." required></textarea>
+            </div>
+
+            <button type="submit" class="submit-btn" id="submitBtn">
+                📧 Send Feedback
+            </button>
+
+            <div class="back-link">
+                <a href="/" onclick="window.history.back(); return false;">← Back to Dashboard</a>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        // Rating selection
+        const ratingBtns = document.querySelectorAll('.rating-btn');
+        const ratingInput = document.getElementById('rating');
+
+        ratingBtns.forEach(btn => {
+            btn.addEventListener('click', function () {
+                ratingBtns.forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+                ratingInput.value = this.dataset.rating;
+            });
+        });
+
+        // Form submission
+        const form = document.getElementById('feedbackForm');
+        const messageBox = document.getElementById('messageBox');
+        const submitBtn = document.getElementById('submitBtn');
+
+        function showMessage(text, type) {
+            messageBox.textContent = text;
+            messageBox.className = `message ${type} show`;
+            setTimeout(() => {
+                messageBox.classList.remove('show');
+            }, 5000);
+        }
+
+        form.addEventListener('submit', async function (e) {
+            e.preventDefault();
+
+            // Validate rating
+            if (!ratingInput.value) {
+                showMessage('Please select a rating', 'error');
+                return;
+            }
+
+            // Collect form data
+            const formData = {
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value || 'Not provided',
+                category: document.getElementById('category').value,
+                rating: ratingInput.value,
+                message: document.getElementById('message').value
+            };
+
+            // Disable submit button
+            submitBtn.disabled = true;
+            submitBtn.textContent = '📧 Sending...';
+
+            try {
+                const response = await fetch('http://localhost:5001/api/feedback', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(formData)
+                });
+
+                const result = await response.json();
+
+                if (result.success) {
+                    showMessage('✅ ' + result.message, 'success');
+                    form.reset();
+                    ratingBtns.forEach(b => b.classList.remove('active'));
+
+                    // Redirect back after 2 seconds
+                    setTimeout(() => {
+                        window.history.back();
+                    }, 2000);
+                } else {
+                    showMessage('❌ ' + (result.error || 'Failed to send feedback'), 'error');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                showMessage('❌ Network error. Please try again.', 'error');
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.textContent = '📧 Send Feedback';
+            }
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,43 @@
+{
+    "name": "BiasBuster Trading Dashboard",
+    "short_name": "BiasBuster",
+    "description": "Professional multi-timeframe trading signal dashboard with real-time alerts",
+    "start_url": "/forex_macd_dashboard.html",
+    "display": "standalone",
+    "background_color": "#0f172a",
+    "theme_color": "#3b82f6",
+    "orientation": "any",
+    "scope": "/",
+    "icons": [
+        {
+            "src": "biasbuster_icon_192.png",
+            "sizes": "192x192",
+            "type": "image/png",
+            "purpose": "any maskable"
+        },
+        {
+            "src": "biasbuster_icon_512.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "any maskable"
+        }
+    ],
+    "categories": [
+        "finance",
+        "business"
+    ],
+    "shortcuts": [
+        {
+            "name": "View Signals",
+            "short_name": "Signals",
+            "description": "View live trading signals",
+            "url": "/forex_macd_dashboard.html",
+            "icons": [
+                {
+                    "src": "biasbuster_icon_192.png",
+                    "sizes": "192x192"
+                }
+            ]
+        }
+    ]
+}

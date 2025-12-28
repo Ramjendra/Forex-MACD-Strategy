@@ -1,0 +1,42 @@
+[Unit]
+Description=Forex MACD Trading Dashboard
+After=network.target
+Documentation=https://github.com/yourusername/forex-macd
+
+[Service]
+Type=forking
+User=ramram
+Group=ramram
+WorkingDirectory=/home/ramram/Desktop/SELF_LEARNING/Medical RAG/documents/Signal/Forex_MACD_Strategy
+
+# Environment
+Environment="PATH=/home/ramram/Desktop/SELF_LEARNING/Medical RAG/documents/Signal/.venv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+Environment="PYTHONUNBUFFERED=1"
+
+# Start script
+ExecStart=/home/ramram/Desktop/SELF_LEARNING/Medical RAG/documents/Signal/Forex_MACD_Strategy/start_forex_service.sh start
+ExecStop=/home/ramram/Desktop/SELF_LEARNING/Medical RAG/documents/Signal/Forex_MACD_Strategy/start_forex_service.sh stop
+ExecReload=/home/ramram/Desktop/SELF_LEARNING/Medical RAG/documents/Signal/Forex_MACD_Strategy/start_forex_service.sh restart
+
+# PID files
+PIDFile=/home/ramram/Desktop/SELF_LEARNING/Medical RAG/documents/Signal/Forex_MACD_Strategy/pids/server.pid
+
+# Restart policy
+Restart=on-failure
+RestartSec=10
+StartLimitInterval=200
+StartLimitBurst=5
+
+# Logging
+StandardOutput=append:/home/ramram/Desktop/SELF_LEARNING/Medical RAG/documents/Signal/Forex_MACD_Strategy/logs/service.log
+StandardError=append:/home/ramram/Desktop/SELF_LEARNING/Medical RAG/documents/Signal/Forex_MACD_Strategy/logs/service-error.log
+
+# Security settings
+NoNewPrivileges=true
+PrivateTmp=true
+
+# Resource limits
+LimitNOFILE=65536
+
+[Install]
+WantedBy=multi-user.target

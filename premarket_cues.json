@@ -1,0 +1,49 @@
+{
+  "timestamp": "2025-12-26 08:28:03 IST",
+  "us_markets": {
+    "S&P 500": {
+      "close": 6932.0498046875,
+      "change_pct": 0.32214822012189737,
+      "sentiment": "NEUTRAL"
+    },
+    "Nasdaq": {
+      "close": 23613.310546875,
+      "change_pct": 0.21844942273747392,
+      "sentiment": "NEUTRAL"
+    },
+    "Dow Jones": {
+      "close": 48731.16015625,
+      "change_pct": 0.59606860820641,
+      "sentiment": "BULLISH"
+    }
+  },
+  "asian_markets": {
+    "Nikkei 225": {
+      "close": 50916.9296875,
+      "change_pct": 1.010043555706684,
+      "sentiment": "BULLISH"
+    },
+    "Hang Seng": {
+      "close": 25818.9296875,
+      "change_pct": 0.17377519255309798,
+      "sentiment": "NEUTRAL"
+    }
+  },
+  "sgx_nifty": {
+    "close": 26142.099609375,
+    "change_pct": -0.13389838361685455,
+    "sentiment": "NEUTRAL"
+  },
+  "crude_oil": {
+    "price": 58.529998779296875,
+    "change_pct": 0.3084838215644744,
+    "sentiment": "NEUTRAL"
+  },
+  "dollar_index": {
+    "value": 97.97599792480469,
+    "change_pct": -0.004088009789420775,
+    "sentiment": "NEUTRAL"
+  },
+  "overall_sentiment": "BULLISH",
+  "sentiment_score": 0.242
+}
